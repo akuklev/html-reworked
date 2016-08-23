@@ -192,7 +192,7 @@ this.hlop = '0.5ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
-this.on('mount', function() {
+adjustSize() {
   var height = this.lbt.getBoundingClientRect().bottom - this.ltp.getBoundingClientRect().top;
   this.update({
     flapHeight: 'calc(' + Math.ceil(height * 2) + 'px/4)',
@@ -200,6 +200,9 @@ this.on('mount', function() {
     hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
     isVoidTag: !this.content.innerHTML
   });
-})
+}
+
+this.on('mount', adjustSize);
+this.onresize = adjustSize;
 
 </xtag>
