@@ -26,8 +26,8 @@ style="
     border-left-width: {hlop}px;
     margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
 /><arrow-right-invisible style="
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5em);
-    width: calc({itp.offsetWidth * 4}px / 4 + 0.5em);">&gt;</arrow-right-invisible
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5ex);
+    width: calc({itp.offsetWidth * 4}px / 4 + 0.5ex);">&gt;</arrow-right-invisible
 ></nobr><wbr/><virtual name="content"><yield
 /></virtual><wbr/
 ></virtual><nobr
@@ -41,8 +41,8 @@ style="
     margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
 /><inverted style="padding-right: {(!opts.short || !!opts.xopts) ? itp.offsetWidth : 0}px"></inverted><arrow-left-invisible
   style="
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5em);
-    width: calc({itp.getBoundingClientRect().width * 4}px / 4 + 0.5em);
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4);
+    width: calc({itp.getBoundingClientRect().width * 4}px / 4 + 0.5ex);
     ">&lt;</arrow-left-invisible
 ><inverted if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
