@@ -193,9 +193,7 @@ this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
 this.on('mount', function() {
-  var height = this.lbt.offsetTop + this.lbt.offsetHeight - this.ltp.offsetTop;
-  console.log(this.lbt.getBoundingClientRect());
-  console.log(this.ltp.getBoundingClientRect());
+  var height = this.lbt.getBoundingClientRect().bottom - this.ltp.getBoundingClientRect().top;
   this.update({
     flapHeight: Math.ceil(height/2) + 'px',
     flipHeight: Math.floor(height/2) + 'px',
