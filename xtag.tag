@@ -192,7 +192,7 @@ this.hlop = '0.5ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
-adjustSize() {
+function adjustSize() {
   var height = this.lbt.getBoundingClientRect().bottom - this.ltp.getBoundingClientRect().top;
   this.update({
     flapHeight: 'calc(' + Math.ceil(height * 2) + 'px/4)',
