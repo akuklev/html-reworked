@@ -196,16 +196,16 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var height = that.lbt.getBoundingClientRect().bottom - that.ltp.getBoundingClientRect().top;
-    var d = 1; //window.devicePixelRatio;
+    var d = window.devicePixelRatio;
     that.update({
-      flapHeight: 'calc(' + Math.ceil(height * d) + 'px/'+ d +')',
-      flipHeight: 'calc(' + Math.floor(height * d) + 'px/'+ d +')',
+      flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
+      flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
       isVoidTag: !that.content.innerHTML
     });
   };
   adjustSize();
-//  window.addEventListener('resize', adjustSize);
+  window.addEventListener('resize', adjustSize);
 });
 
 </xtag>
