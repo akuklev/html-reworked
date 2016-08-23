@@ -193,15 +193,14 @@ this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
 this.on('mount', function() {
+  var that = this;
   var adjustSize = function() {
-    console.log(window.devicePixelRatio);
-    console.log('Hi there');
-    var height = this.lbt.getBoundingClientRect().bottom - this.ltp.getBoundingClientRect().top;
-    this.update({
-      flapHeight: 'calc(' + Math.ceil(height * 2) + 'px/4)',
-      flipHeight: 'calc(' + Math.floor(height * 2) + 'px/4)',
+    var height = that.lbt.getBoundingClientRect().bottom - that.ltp.getBoundingClientRect().top;
+    that.update({
+      flapHeight: 'calc(' + Math.ceil(height * window.devicePixelRatio) + 'px/'+ window.devicePixelRatio +')',
+      flipHeight: 'calc(' + Math.floor(height * window.devicePixelRatio) + 'px/'+ window.devicePixelRatio +')',
       hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
-      isVoidTag: !this.content.innerHTML
+      isVoidTag: !that.content.innerHTML
     });
   };
   adjustSize();
