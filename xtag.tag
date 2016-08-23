@@ -41,7 +41,7 @@ style="
     margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
 /><inverted style="padding-right: {(!opts.short || !!opts.xopts) ? itp.offsetWidth : 0}px"></inverted><arrow-left-invisible
   style="
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4);
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5em);
     width: calc({itp.getBoundingClientRect().width * 4}px / 4 + 0.5em);
     ">&lt;</arrow-left-invisible
 ><inverted if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
