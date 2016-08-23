@@ -1,7 +1,7 @@
 <xtag
 ><nobr><arrow-left-bottom
   name=lbt
-  style="border-bottom-width: {flipHeight}; margin-right: -{ltp.offsetWidth}px"
+  style="border-bottom-width: {flipHeight}; margin-right: calc(-{ltp.getBoundingClientRect().width * 4}px / 4)"
 /><arrow-left-top
   name=ltp style="
     border-top-width: {flapHeight};
@@ -24,10 +24,10 @@
 style="
     border-bottom-width: {hlop}px;
     border-left-width: {hlop}px;
-    margin-left: -{itp.offsetWidth}px"
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
 /><arrow-right-invisible style="
-    margin-left: -{itp.offsetWidth * 2}px;
-    width: {itp.offsetWidth * 2}px;">&gt;</arrow-right-invisible
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5em);
+    width: calc({itp.offsetWidth * 4}px / 4 + 0.5em);">&gt;</arrow-right-invisible
 ></nobr><wbr/><virtual name="content"><yield
 /></virtual><wbr/
 ></virtual><nobr
@@ -38,11 +38,11 @@ style="
 /><inarrow-right-bottom style="
     border-bottom-width: {hlop}px;
     border-right-width: {hlop}px;
-    margin-left: -{itp.offsetWidth}px"
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
 /><inverted style="padding-right: {(!opts.short || !!opts.xopts) ? itp.offsetWidth : 0}px"></inverted><arrow-left-invisible
   style="
-    margin-left: -{itp.offsetWidth * 2}px;
-    width: {itp.offsetWidth * 2}px;
+    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4);
+    width: calc({itp.getBoundingClientRect().width * 4}px / 4 + 0.5em);
     ">&lt;</arrow-left-invisible
 ><inverted if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
@@ -50,7 +50,7 @@ style="
   name=rtp
   style="
     border-top-width: {flapHeight};
-    margin-right: -{ltp.offsetWidth}px"
+    margin-right: calc(-{ltp.getBoundingClientRect().width * 4}px / 4)"
 /><arrow-right-bottom
   style="border-bottom-width: {flipHeight}"
 /><arrow-right-invisible><virtual if={isVoidTag}>/</virtual>&gt;</arrow-right-invisible></nobr>
@@ -195,8 +195,8 @@ this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 this.on('mount', function() {
   var height = this.lbt.getBoundingClientRect().bottom - this.ltp.getBoundingClientRect().top;
   this.update({
-    flapHeight: 'calc(' + Math.ceil(height * 300) + 'px/600)',
-    flipHeight: 'calc(' + Math.floor(height * 300) + 'px/600)',
+    flapHeight: 'calc(' + Math.ceil(height * 2) + 'px/4)',
+    flipHeight: 'calc(' + Math.floor(height * 2) + 'px/4)',
     hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
     isVoidTag: !this.content.innerHTML
   });
