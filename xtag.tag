@@ -196,9 +196,10 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var height = that.lbt.getBoundingClientRect().bottom - that.ltp.getBoundingClientRect().top;
+    var d = 1; //window.devicePixelRatio;
     that.update({
-      flapHeight: 'calc(' + Math.ceil(height * window.devicePixelRatio) + 'px/'+ window.devicePixelRatio +')',
-      flipHeight: 'calc(' + Math.floor(height * window.devicePixelRatio) + 'px/'+ window.devicePixelRatio +')',
+      flapHeight: 'calc(' + Math.ceil(height * d) + 'px/'+ d +')',
+      flipHeight: 'calc(' + Math.floor(height * d) + 'px/'+ d +')',
       hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
       isVoidTag: !that.content.innerHTML
     });
