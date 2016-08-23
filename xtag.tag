@@ -1,11 +1,11 @@
 <xtag
 ><nobr><arrow-left-bottom
   name=lbt
-  style="border-bottom-width: {flipHeight}"
+  style="border-bottom-width: {flipHeight}; margin-right: -{ltp.offsetWidth}px"
 /><arrow-left-top
   name=ltp style="
     border-top-width: {flapHeight};
-    margin-left: -{ltp.offsetWidth}px"
+    margin-left: 0px"
 /><arrow-left-invisible>&lt;</arrow-left-invisible
 ><inverted><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type}
