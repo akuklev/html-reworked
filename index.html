@@ -16,8 +16,8 @@
     stuff like entities and CDATA in favour of proper escaping.<br/>
     <br/>
     Then introduce laconic syntax for most common attribute types: ids, classes,
-    and styles, add support for templating directives (<code>\if</code> and <code>\each</code> for elements,
-    custom content preprocessing directives like <code>\markdown</code>) and expression interpolation
+    and styles, add support for templating directives (<code>@if</code> and <code>@each</code> for elements,
+    custom content preprocessing directives like <code>@markdown</code>) and expression interpolation
     (my favorites are square brakets), and abolish all other attributes in favor
     of extensible and reworked CSS.<br/>
     <br/>
@@ -35,7 +35,7 @@
     Remarks on notation:<br/>
     – id: right after tag type and classes;<br/>
     – class: as subscript of tag separated by dot(s);<br/> 
-    – directives like 'if' and 'each': in the end, separated by '┆';<br/>
+    – directives like '@if' and '@each': in the end, separated by '┆';<br/>
     – styles: just before directives, in braces.<br/>
     <br/>
     Futhermore we want to have syntax for links, images and alike almost as tidy
