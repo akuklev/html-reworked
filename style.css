@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Anka/Coder Condensed';
-  src: url('//fontlibrary.org/assets/fonts/anka-coder-condensed/5b5d74bc1795f57c315a532383ee0c0f/1d00eb29e875272ed4384f7398e32042/AnkaCoderCondensedBold.ttf') format('truetype');
+  src: url('./fonts/AnkaCoderCondensedBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Anka/Coder Narrow';
-  src: url('//fontlibrary.org/assets/fonts/anka-coder-narrow/4ed9dd9fcfa020d9f9c3de3fffb2b2ad/fc2bb7812de57ddc5d492442d57d16f3/AnkaCoderNarrowRegular.ttf') format('truetype');
+  src: url('./fonts/AnkaCoderNarrowRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
