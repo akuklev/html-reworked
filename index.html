@@ -1,85 +1,80 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <title>HTML Reworked</title>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/anka-coder-condensed" type="text/css"/>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/anka-coder-narrow" type="text/css"/>
-    <link rel="stylesheet" href="style.css">
-  </head>
+<html lang='en'>
+<head>
+  <title>HTML Reworked</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+  
+<h1>HTML Reworked</h1>
+Imagine, we take HTML5, add the notation for self-closing tags (like in <code>&lt;br/&gt;</code>) and
+namespaces from XML, take universal closing tags from SGML (<code>&lt;/&gt;</code> closes
+any tag), stop treating newlines adjacent to tags as whitespaces, remove outdated
+stuff like entities and CDATA in favour of proper escaping.<br/>
+<br/>
+Then introduce laconic syntax for most common attribute types: ids, classes,
+and styles, add support for templating directives (<code>@if</code> and <code>@each</code> for elements,
+custom content preprocessing directives like <code>@markdown</code>) and expression interpolation
+(my favorites are square brakets), and abolish all other attributes in favor
+of extensible and reworked CSS.<br/>
+<br/>
+Now add prettyprinting that makes tags look like complex brackets, not like a part of the text, and restores
+symmetry between opening and closing tags.<br/>
 
-  <body>
-    <h1>HTML Reworked</h1>
-    Imagine, we take HTML5, add the notation for self-closing tags (like in <code>&lt;br/&gt;</code>) and
-    namespaces from XML, take universal closing tags from SGML (<code>&lt;/&gt;</code> closes
-    any tag), stop treating newlines adjacent to tags as whitespaces, remove outdated
-    stuff like entities and CDATA in favour of proper escaping.<br/>
-    <br/>
-    Then introduce laconic syntax for most common attribute types: ids, classes,
-    and styles, add support for templating directives (<code>@if</code> and <code>@each</code> for elements,
-    custom content preprocessing directives like <code>@markdown</code>) and expression interpolation
-    (my favorites are square brakets), and abolish all other attributes in favor
-    of extensible and reworked CSS.<br/>
-    <br/>
-    Now add prettyprinting that makes tags look like complex brackets, not like a part of the text, and restores
-    symmetry between opening and closing tags.<br/>
+Have you imagined it? Now that's what it can look like:    
+<br/>
+<br/>  
+<xtag type='Div' xid='example'><div class='cindented'>
+  Text with a <xtag type='Span' xclass='emph'>of text</xtag>,<br/> an <xtag type='Image' xopts='src: ./smiley.png'></xtag>, and an<br/>
+  optional <xtag type='Button' play xdirs='if (ui-enabled)'></xtag>.</div>
+</xtag><br/>
+<br/>
+Remarks on notation:<br/>
+– id: right after tag type and classes;<br/>
+– class: as subscript of tag separated by dot(s);<br/> 
+– directives like '@if' and '@each': in the end, separated by '┆';<br/>
+– styles: just before directives, in braces.<br/>
+<br/>
+Futhermore we want to have syntax for links, images and alike almost as tidy
+as in markdown. So we'll allow to omit tag name in closing tag (universal closing tag, remember?)
+and/or move style section to the closing tag if the user considers text
+more readable this way, e.g. <br/><xtag type='Image' xopts='src: ./figure.png' short={true}>alt text</xtag>,<br/>
+and <xtag type='' xopts='ref: //www.example.org' short={true}>Link text</xtag>.<br/> In the latter case we make of the last additional feature:
+anonymous tags, interpreted either as spans or a's (if only styles are present) or virtial tags (if only directives are present).<br/>
 
-    Have you imagined it? Now that's what it can look like:    
-    <br/>
-    <br/>  
-    <xtag type="Div" xid='example'><div style='padding-left: 1ex'>
-  Text with a <xtag type="Span" xclass="emph">of text</xtag>,<br/> an <xtag type="Image" xopts='src: ./smiley.png'></xtag>, and an<br/>
-  optional <xtag type="Button" play xdirs='if (ui-enabled)'></xtag>.</div>
-    </xtag><br/>
-    <br/>
-    Remarks on notation:<br/>
-    – id: right after tag type and classes;<br/>
-    – class: as subscript of tag separated by dot(s);<br/> 
-    – directives like '@if' and '@each': in the end, separated by '┆';<br/>
-    – styles: just before directives, in braces.<br/>
-    <br/>
-    Futhermore we want to have syntax for links, images and alike almost as tidy
-    as in markdown. So we'll allow to omit tag name in closing tag (universal closing tag, remember?)
-    and/or move style section to the closing tag if the user considers text
-    more readable this way, e.g. <br/><xtag type="Image" xopts='src: ./figure.png' short={true}>alt text</xtag>,<br/>
-    and <xtag type="" xopts='ref: //www.example.org' short={true}>Link text</xtag>.<br/> In the latter case we make of the last additional feature:
-    anonymous tags, interpreted either as spans or a's (if only styles are present) or virtial tags (if only directives are present).<br/>
+<h2>Dream of a Rich Text Language</h2>
+The language I'd like to use to write everything I write (from
+blog entries to scientific articles and embedded documentation
+in programs I write) using a mix of multimarkdown and this
+variety of HTML. I really like how multimarkdown handles
+linebreaks, lists, quotations, citations, code insertions and
+alike, I really like being able to write _underscores_ for emphasized
+text, but I also like to be able to freely intermix all of this with
+proper HTML which is more readable and readily understandable by
+unexpirienced persons in all other cases (including links, images,
+footnotes, etc.). Thankfully, Multimarkdown has nothing which would hamper
+intermixing with the variety of HTML we just described.
+<br/>
+Given a library of components (such as date picker, spinner, etc) and pure
+layout tags (mainly flexbox, block, overlay, inline, inline-block
+and float) and ability to define your own components nicely, it would also
+make a perfect language for designing UIs.
+  
+<h2>Tag definitions</h2>
+In the next chapter we'll propose you a syntax for component definitions
+loosly based on Riot.js, DTDs adopted to usage of css-style attributes and
+attribute namespaces and Scala-style inheritance.<br/>
+<br/>
+Custom tags are often associated with lack of transparency and incompatibility
+with any medias except for display (an extreme example being custom tags in
+Adobe Flash), non-conformity to accessability guidelines and semantic obscurity.
 
-    
-    <h2>Dream of a Rich Text Language</h2>
-    The language I'd like to use to write everything I write (from
-    blog entries to scientific articles and embedded documentation
-    in programs I write) using a mix of multimarkdown and this
-    variety of HTML. I really like how multimarkdown handles
-    linebreaks, lists, quotations, citations, code insertions and
-    alike, I really like being able to write _underscores_ for emphasized
-    text, but I also like to be able to freely intermix all of this with
-    proper HTML which is more readable and readily understandable by
-    unexpirienced persons in all other cases (including links, images,
-    footnotes, etc.). Thankfully, Multimarkdown has nothing which would hamper
-    intermixing with the variety of HTML we just described.
-    <br/>
-    Given a library of components (such as date picker, spinner, etc) and pure
-    layout tags (mainly flexbox, block, overlay, inline, inline-block
-    and float) and ability to define your own components nicely, it would also
-    make a perfect language for designing UIs.
-    
-    <h2>Tag definitions</h2>
-    In the next chapter we'll propose you a syntax for component definitions
-    loosly based on Riot.js, DTDs adopted to usage of css-style attributes and
-    attribute namespaces and Scala-style inheritance.<br/>
-    <br/>
-    Custom tags are often associated with lack of transparency and incompatibility
-    with any medias except for display (an extreme example being custom tags in
-    Adobe Flash), non-conformity to accessability guidelines and semantic obscurity.
-    
-    We'll be putting extra effort on counteracting this issues, it should be made
-    easy to define a WAI-ARIA compliant component with semantic properties
-    noninferior to predefined HTML tags.<br/>
-    <br/>
-    Refs: <a href="http://akuklev.livejournal.com/1173309.html">//akuklev.livejournal.com/1173309</a>
-  </body>
+We'll be putting extra effort on counteracting this issues, it should be made
+easy to define a WAI-ARIA compliant component with semantic properties
+noninferior to predefined HTML tags.<br/>
+<br/>
+Refs: <a href='http://akuklev.livejournal.com/1173309.html'>//akuklev.livejournal.com/1173309</a>
 
-  <script src="xtag.tag" type="riot/tag"></script>
-  <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
-  <script> riot.mount('*') </script>
+<script src='xtag.tag' type='riot/tag'></script>
+<script src='https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js'></script>
+<script> riot.mount('*') </script>
 </html>
