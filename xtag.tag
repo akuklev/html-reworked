@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(1em + {window.devicePixelRatio});'
+<xtag style='line-height: calc(1em + {window.devicePixelRatio}px);'
 ><nobr><arrow-left-bottom
   name=lbt
   style="border-bottom-width: {flipHeight}; margin-right: calc(-{ltp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
