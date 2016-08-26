@@ -34,6 +34,11 @@ code.bold {
   font-weight: bold;
 }
 
+span.slogan {
+  padding: 1em 1ex;
+  font-weight: 400;
+}
+
 div.cindented {
   padding-left: 1ex;
 }
