@@ -12,8 +12,10 @@
   font-style: normal;
 }
 
+@import 'https://fonts.googleapis.com/css?family=PT+Serif';
+
 body {
-  font-family: 'myriad pro', sans-serif;
+  font-family: 'PT Serif', serif;
   font-size: 18px;
   border: 0;
   margin: 0;
