@@ -35,8 +35,9 @@ code.bold {
 }
 
 span.slogan {
-  padding: 1em 1ex;
-  font-weight: 400;
+  padding: 1.5em;
+  line-height: 2.5em;
+  font-weight: 600;
 }
 
 div.cindented {
