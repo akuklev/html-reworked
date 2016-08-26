@@ -1,10 +1,24 @@
+@font-face {
+  font-family: 'Anka/Coder Condensed';
+  src: url('http://fontlibrary.org/assets/fonts/anka-coder-condensed/5b5d74bc1795f57c315a532383ee0c0f/1d00eb29e875272ed4384f7398e32042/AnkaCoderCondensedBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Anka/Coder Narrow';
+  src: url('http://fontlibrary.org/assets/fonts/anka-coder-narrow/4ed9dd9fcfa020d9f9c3de3fffb2b2ad/fc2bb7812de57ddc5d492442d57d16f3/AnkaCoderNarrowRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: 'myriad pro', sans-serif;
   font-size: 18px;
   border: 0;
   margin: 0;
   padding: 100px;
-  line-height: calc(1em + 1px);
+  line-height: calc(1em + 2px);
   max-width: 70ex;
   text-align: justify;
   hyphens: auto;
@@ -12,4 +26,8 @@ body {
 
 code {
   font-family: "Anka/Coder Narrow";
+}
+
+div.cindented {
+  padding-left: 1ex;
 }
