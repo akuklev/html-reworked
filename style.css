@@ -5,10 +5,9 @@ body {
   margin: 0;
   padding: 100px;
   line-height: calc(1em + 1px);
-}
-
-p {
-  margin: 0;
+  max-width: 70ex;
+  text-align: justify;
+  hyphens: auto;
 }
 
 code {
