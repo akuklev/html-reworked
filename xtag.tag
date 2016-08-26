@@ -59,7 +59,7 @@ style="
 <style scoped>
 
 xtag {
-  line-height: 1.25em;
+  line-height: calc(1em + 1px);
 }
 
 arrow-left-invisible {
@@ -161,7 +161,7 @@ inverted {
   color: white;
   background: rgb(30%, 40%, 45%);
   display: inline;
-  line-height: 1em;
+  line-height: calc(1em + 1px);
 }
 
 inverted.pad-right {
