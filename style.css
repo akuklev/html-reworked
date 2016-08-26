@@ -16,11 +16,10 @@
 
 body {
   font-family: 'PT Serif', serif;
-  font-size: 18px;
+  font-size: 112.5%;
   border: 0;
   margin: 0;
-  padding: 100px;
-  line-height: calc(1em + 2px);
+  padding: 4em;
   max-width: 70ex;
   text-align: justify;
   hyphens: auto;
