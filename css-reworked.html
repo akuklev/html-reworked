@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <title>HTML Reworked</title>
+  <link rel="preload" href="xtag.tag" as="script">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="//rawgit.com/riot/riot/master/riot+compiler.min.js" as="script">
+  <link rel='stylesheet' type="text/css" href='style.css'>
+</head>
+
+<h1>CSS Reworked</h1>
+The language of cascading style sheets has a number of well-known
+deficiencies and inconsistencies. Fortunatelly, there is a way to
+fix lots of them with minimal changes to syntax.<br/>
+<br/>
+First of all, CSS consists of at-rules (like <code>@import</code>, <code>@media</code>
+and <code>@font-face</code>), and unprefixed rules. We'd gain more
+consistency and natural syntax for scoped rules by requiring them
+to start with <code>@rule</code>, just like this:
+<pre>
+<b><code>@rule</code></b> div.sidenote {
+  font: smaller;
+  color: rgba(0%, 0%, 0%, 0.9);
+  <b><code>@rule</code></b> strong {
+    font-weight: 300;
+  }
+}
+</pre>
+<br/>
+It would be also nice to fix once and for all syntax for interpolation
+of expressions (in host language, javascript by default). My favourite
+is square brakets. If we assume, the “host language” is units-aware, we
+can dispense with <code>calc(..)</code> and <code>attr(..)</code> in
+favour of stuff like <code>[1em + 5px + additional-width]</code>.<br/>
+<br/>
+You probably know about how <code>&lt;li&gt;s</code> are styled:
+<pre>
+li:before {
+  content: "•";
+  padding-right: 8px;
+}
+</pre>
+
+But you cannot really put HTML content there, and interpolation works
+ugly. We propose the following syntax:
+<b><code>@rule</code></b> li.before {
+  &lt;([counter])&gt;
+  padding-right: 8px;
+}
+</pre>
+
+So, just put HTML template in the beginning of the body of the rule.
+<br/>
+</html>
