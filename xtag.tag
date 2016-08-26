@@ -1,7 +1,7 @@
-<xtag
+<xtag style='line-height: calc(1em + {window.devicePixelRatio});'
 ><nobr><arrow-left-bottom
   name=lbt
-  style="border-bottom-width: {flipHeight}; margin-right: calc(-{ltp.getBoundingClientRect().width * 4}px / 4)"
+  style="border-bottom-width: {flipHeight}; margin-right: calc(-{ltp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
 /><arrow-left-top
   name=ltp style="
     border-top-width: {flapHeight};
@@ -24,10 +24,10 @@
 style="
     border-bottom-width: {hlop}px;
     border-left-width: {hlop}px;
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
+    margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
 /><arrow-right-invisible style="
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5ex);
-    width: calc({itp.offsetWidth * 4}px / 4 + 0.5ex);">&gt;</arrow-right-invisible
+    margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} - 0.5ex);
+    width: calc({itp.offsetWidth * window.devicePixelRatio}px / {window.devicePixelRatio} + 0.5ex);">&gt;</arrow-right-invisible
 ></nobr><wbr/><virtual name="content"><yield
 /></virtual><wbr/
 ></virtual><nobr
@@ -38,11 +38,11 @@ style="
 /><inarrow-right-bottom style="
     border-bottom-width: {hlop}px;
     border-right-width: {hlop}px;
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4)"
+    margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
 /><inverted style="padding-right: {(!opts.short || !!opts.xopts) ? itp.offsetWidth : 0}px"></inverted><arrow-left-invisible
   style="
-    margin-left: calc(-{itp.getBoundingClientRect().width * 4}px / 4 - 0.5ex);
-    width: calc({itp.getBoundingClientRect().width * 4}px / 4 + 0.5ex);
+    margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} - 0.5ex);
+    width: calc({itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} + 0.5ex);
     ">&lt;</arrow-left-invisible
 ><inverted if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
@@ -50,17 +50,13 @@ style="
   name=rtp
   style="
     border-top-width: {flapHeight};
-    margin-right: calc(-{ltp.getBoundingClientRect().width * 4}px / 4)"
+    margin-right: calc(-{ltp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
 /><arrow-right-bottom
   style="border-bottom-width: {flipHeight}"
 /><arrow-right-invisible><virtual if={isVoidTag}>/</virtual>&gt;</arrow-right-invisible></nobr>
 
 
 <style scoped>
-
-xtag {
-  line-height: calc(1em + 1px);
-}
 
 arrow-left-invisible {
   color: transparent;
@@ -160,8 +156,6 @@ inverted {
   display: inline;
   color: white;
   background: rgb(30%, 40%, 45%);
-  display: inline;
-  line-height: calc(1em + 1px);
 }
 
 inverted.pad-right {
