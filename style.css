@@ -25,7 +25,12 @@ body {
 }
 
 code {
-  font-family: "Anka/Coder Narrow";
+  font-family: 'Anka/Coder Narrow';
+}
+
+code.bold {
+  font-face: 'Anka/Coder Condensed';
+  font-weight: bold;
 }
 
 div.cindented {
