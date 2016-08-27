@@ -23,7 +23,7 @@ moss-grown CDATA, entities and comments. Stop treating newlines near tags as whi
 <br/>
 Introduce concise syntax for most common attribute types: ids, classes, styles,
 and processing directives (<code>@if</code>, <code>@each</code>, <code>@markdown</code>, <code>@prettyprint</code>, etc.), and abolish all other attributes
-in favor of extensible and reworked CSS.<br/>
+in favor of <a href='css-reworked'>extensible and reworked CSS</a>.<br/>
 <br/>
 Now add prettyprinting that makes tags look like complex brackets, not like a
 part of the text, and restore the symmetry between opening and closing tags.<br/>
@@ -48,6 +48,22 @@ and/or move style section to the closing tag if the user considers text
 more readable this way, e.g. <br/><xtag type='Image' xopts='src: ./figure.png' short={true}>alt text</xtag>,<br/>
 and <xtag type='' xopts='ref: //www.example.org' short={true}>Link text</xtag>.<br/> In the latter case we make of the last additional feature:
 anonymous tags, interpreted either as spans or a's (if only styles are present) or virtial tags (if only directives are present).<br/>
+<br/>
+Since reworked CSS we propose can contain new element definitions, it should be
+considered a part of the DTD, so we propose the following doctype definition for our HTML flavour:
+<pre><code>&lt;<b>!DOCTYPE</b> html <b>@with</b> /path/to/stylesheet&gt;</code></pre>
+or, for embedded css:
+<pre><code>&lt;<b>!DOCTYPE</b> html <b>@with</b> [
+... // stylesheet
+]&gt;</code></pre>
+
+Correspondingly, style tags and stylesheet links must be abolished,
+for stylesheets spanning over multiple files, <code>@import</code>
+rules can be used:
+<pre><code>&lt;<b>!DOCTYPE</b> html <b>@with</b> [
+@import <a href='css-reworked'>./common.css</a> screen, projection;
+@import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
+]&gt;</code></pre>
 
 <h2>Dream of a Rich Text Language</h2>
 The language I'd like to use to write everything I write (from
@@ -66,19 +82,6 @@ Given a library of components (such as date picker, spinner, etc) and pure
 layout tags (mainly flexbox, block, overlay, inline, inline-block
 and float) and ability to define your own components nicely, it would also
 make a perfect language for designing UIs.
-  
-<h2>Tag definitions</h2>
-In the next chapter we'll propose you a syntax for component definitions
-loosly based on Riot.js, DTDs adopted to usage of css-style attributes and
-attribute namespaces and Scala-style inheritance.<br/>
-<br/>
-Custom tags are often associated with lack of transparency and incompatibility
-with any medias except for display (an extreme example being custom tags in
-Adobe Flash), non-conformity to accessability guidelines and semantic obscurity.
-
-We'll be putting extra effort on counteracting this issues, it should be made
-easy to define a WAI-ARIA compliant component with semantic properties
-noninferior to predefined HTML tags.<br/>
 <br/>
 Refs: <a href='http://akuklev.livejournal.com/1173309.html'>//akuklev.livejournal.com/1173309</a>
 
