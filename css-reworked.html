@@ -51,6 +51,7 @@ ugly. We propose the following syntax:
 <pre>
 <b>@rule</b> li.before {
   <code>&lt;span&gt;•&lt;sub&gt;[counter]&lt;/sub&gt;&lt;/span&gt;</code>
+  
   padding.right: 8px;
 }
 </pre>
@@ -65,7 +66,8 @@ and all the table stuff) in these templates if we're working on
 visual media and deprecate the “display” property in favour of them:
 <pre>
 <b>@rule</b> div.remark {
-  &lt;run-in&gt;[content]&lt;/run-in&gt;
+  <code>&lt;run-in&gt;[content]&lt;/run-in&gt;</code>
+  
   font.size: smaller;
 }
 </pre>
@@ -82,9 +84,9 @@ this property.<br/>
 The last and most interesting thing we want to add to CSS is the
 element definition rule. Take a look at the following example:
 <p><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
-  &lt;block class=timer-box&gt;
+  <code>&lt;block class=timer-box&gt;
     &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
-  &lt;/block&gt;
+  &lt;/block&gt;</code>
   
   <b>@rule</b> block.timer-box {
     max-width: 300px;
