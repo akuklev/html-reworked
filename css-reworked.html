@@ -69,5 +69,72 @@ visual media and deprecate the “display” property in favour of them:
 }
 </pre>
 <br/>
+We also require fixing display mode for proper HTML elements (i.e.
+the ones with specified semantic meaning, not fixed presentation)
+before non-inheritable properties (the ones like <code>width</code>)
+can be set on them. We want to forbid setting <code>width</code>
+of a <code>&lt;div&gt;</code> in by a rule which is not aware that
+this particular <code>&lt;div&gt;</code> has display mode allowing
+this property.<br/>
+<br/>
+<h2>Element definitions</h2>
+The last and most interesting thing we want to add to CSS is the
+element definition rule. Take a look at the following example:
+<p><code><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
+  &lt;block class=timer-box&gt;
+    &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
+  &lt;/block&gt;
+  
+  <b>@rule</b> block.timer-box {
+    max-width: 300px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    border: 1px solid rgba(64, 139, 194, .5);
+    border.radius: 6px;
+    text-align: center;
+    color: rgba(64, 139, 194, 1);
+    background: white;
+  }
+  
+  <b>@rule</b> p {
+    margin: 0;
+  }
+  
+  this.time = opts.start
 
-</html>
+  tick() {
+    this.time: ++this.time;
+  }
+
+  var timer = setInterval(this.tick, 1000ms)
+
+  this.on('unmount', function() {
+    clearInterval(timer)
+  })
+}
+</pre>
+
+This is a port of an example from riot.js to our syntax, here we
+define a new visual element &lt;Timer/&gt;. In the definition we
+mix HTML (including presentational tags for we're on a visual
+media), CSS and JavaScript and observe that they compose well.
+
+The difference from original riot.js definition (which we consider
+to be one of the tidiest frameworks on the market) is that we
+do not use &lt;script&gt; tag for enclosing styles, since 
+<code>@rule</code> prefix facilitates intermixability with
+JavaScript (and most other applicable programming languages),
+and usage of inheritance.<br/>
+<br/>
+By inheriting from DisplayObject or FormattingObject we would
+declare our tag is not intended to be used in top level HTML
+document, but only on visual medias. By inheriting from
+VisualElement and providing <code>aria:role</code> we declare
+that our element has genuine semantical meaning, alas only
+in on visual medias (like images, banners etc), on all the
+other medias alt-text can be used instead, our definition
+forwards the (optional) content of the element as alt-text,
+i.e. if the user considers alternative text desirable, they
+can use &lt;Timer&gt;alt. text&lt;/Timer&gt; instead of &lt;Timer/&gt;.
+</code></html>
