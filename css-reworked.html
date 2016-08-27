@@ -49,10 +49,10 @@ li:before {
 But you cannot really put HTML content there, and interpolation works
 ugly. We propose the following syntax:
 <pre>
-<b><code>@rule</code></b> li.before {
+<code><b>@rule</b> li.before {
   &lt;span&gt;•&lt;sub&gt;[counter]&lt;/sub&gt;&lt;/span&gt;
-  padding-right: 8px;
-}
+  padding.right: 8px;
+}</code>
 </pre>
 So, just put HTML template in the beginning of the body of the rule.
 To improve consistency yet more let's allow additional presentational
@@ -63,7 +63,7 @@ tags (<code>&lt;none/&gt;</code>, <code>&lt;tabstop/&gt;</code>,
 <code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code>,
 and all the table stuff) in these templates if we're working on
 visual media and deprecate the “display” property in favour of them:
-<br/>
+<pre>
 <b>@rule</b> div.remark {
   &lt;run-in&gt;[content]&lt;/run-in&gt;
   font.size: smaller;
