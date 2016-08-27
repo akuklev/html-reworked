@@ -13,7 +13,12 @@ The language of cascading style sheets has a number of well-known
 deficiencies and inconsistencies. Fortunatelly, there is a way to
 fix lots of them with minimal changes to syntax.<br/>
 <br/>
-First of all, CSS consists of at-rules (like <code>@import</code>, <code>@media</code>
+It's really misleading that hyphens in properties' names are used both
+as substitutes for whitespace (as in <code>vertical-align</code>) and
+as subproperty delimiters (as in <code>padding-left</code>), we favour
+dots as subproperty delimiters (<code>border.top-left-radius</code>).<br/>
+<br/>
+CSS files consist of at-rules (like <code>@import</code>, <code>@media</code>
 and <code>@font-face</code>), and unprefixed rules. We'd gain more
 consistency and natural syntax for scoped rules by requiring them
 to start with <code>@rule</code>, just like this:
@@ -22,7 +27,7 @@ to start with <code>@rule</code>, just like this:
   font: smaller;
   color: rgba(0%, 0%, 0%, 0.9);
   <b><code>@rule</code></b> strong {
-    font-weight: 300;
+    font.weight: 300;
   }
 }
 </pre>
@@ -44,11 +49,25 @@ li:before {
 But you cannot really put HTML content there, and interpolation works
 ugly. We propose the following syntax:
 <b><code>@rule</code></b> li.before {
-  &lt;([counter])&gt;
+  &lt;span&gt;•&lt;sub&gt;[counter]&lt;/sub&gt;&lt;/span&gt;
   padding-right: 8px;
 }
 </pre>
-
 So, just put HTML template in the beginning of the body of the rule.
+To improve consistency yet more let's allow additional presentational
+tags (<code>&lt;none/&gt;</code>, <code>&lt;tabstop/&gt;</code>,
+<code>&lt;run-in/&gt;</code>, <code>&lt;inline/&gt;</code>,
+<code>&lt;block/&gt;</code>, <code>&lt;inline-block/&gt;</code>,
+<code>&lt;flex/&gt;</code>, <code>&lt;inline-flex/&gt;</code>,
+<code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code>,
+and all the table stuff) in these templates if we're working on
+visual media and deprecate the “display” property in favour of them:
 <br/>
+<b><code>@rule</code></b> div.remark {
+  &lt;run-in&gt;[content]&lt;/run-in&gt;
+  font.size: smaller;
+}
+</pre>
+<br/>
+
 </html>
