@@ -54,14 +54,14 @@ ugly. We propose the following syntax:
 }
 </pre>
 So, just put HTML template in the beginning of the body of the rule.
-To improve consistency yet more let's allow additional presentational
-tags (<code>&lt;none/&gt;</code>, <code>&lt;tabstop/&gt;</code>,
+To improve consistency yet more let's deprecate the <code>display</code>
+property in favour of such templates involving layout tags
+(<code>&lt;none/&gt;</code>, <code>&lt;tabstop/&gt;</code>,
 <code>&lt;run-in/&gt;</code>, <code>&lt;inline/&gt;</code>,
 <code>&lt;block/&gt;</code>, <code>&lt;inline-block/&gt;</code>,
 <code>&lt;flex/&gt;</code>, <code>&lt;inline-flex/&gt;</code>,
 <code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code>,
-and all the table stuff) in these templates if we're working on
-visual media and deprecate the “display” property in favour of them:
+and all the table stuff):
 <pre>
 <b>@rule</b> div.remark {
   <code>&lt;run-in&gt;[content]&lt;/run-in&gt;</code>
@@ -127,7 +127,7 @@ do not use &lt;script&gt; tag for enclosing styles, since
 JavaScript (and most other applicable programming languages),
 and usage of inheritance.<br/>
 <br/>
-By inheriting from <code>DisplayObject</code> or <code>FormattingObject</code> we would
+By inheriting from <code>LayoutTag</code> or <code>FormattingObject</code> we would
 declare our tag is not intended to be used in top level HTML
 document, but only on visual medias. By inheriting from
 <code>VisualElement</code> we declare that our element has genuine semantical
