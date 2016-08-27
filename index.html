@@ -51,16 +51,16 @@ anonymous tags, interpreted either as spans or a's (if only styles are present) 
 <br/>
 Since reworked CSS we propose can contain new element definitions, it should be
 considered a part of the DTD, so we propose the following doctype definition for our HTML flavour:
-<pre><code>&lt;!<b>DOCTYPE</b> html <b>@with</b> /path/to/stylesheet&gt;</code></pre>
+<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
 or, for embedded css:
-<pre><code>&lt;!<b>DOCTYPE</b> html <b>@with</b> [
+<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
   ... // stylesheet
 ]&gt;</code></pre>
 
 Correspondingly, style tags and stylesheet links must be abolished,
 for stylesheets spanning over multiple files, <code>@import</code>
 rules can be used:
-<pre><code>&lt;!<b>DOCTYPE</b> html <b>@with</b> [
+<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
   @import <a href='css-reworked'>./common.css</a> screen, projection;
   @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
 ]&gt;</code></pre>
