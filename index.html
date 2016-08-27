@@ -11,7 +11,7 @@
 There is only one way to make a “rich text” document truly accessible: its source
 must be easily readable as plain text, the only aid allowed being pretty-printing.
 HTML was designed to be like that, but it fails miserably since 20 years.
-Markdown &amp;co. do master it, but they are not overly extenstensible and
+Markdown&amp;co. do master it, but they are not overly extenstensible and
 tend to overuse cryptic multigraphs where words would do just as good.<br/>
 <span class='slogan'>Let's make HTML great again!</span>
 
@@ -29,8 +29,7 @@ in favor of <a href='css-reworked'>extensible and reworked CSS</a>.<br/>
 <br/>
 Add pretty-printing that makes tags look more like compound brackets, less
 like a part of the text, regain the symmetry between opening and closing tags.<br/>
-<br/>
-Have you imagined it? There it is:    
+<b>There it is:</b>    
 <br/>
 <br/>  
 <xtag type='Div' xid='example'><div class='cindented'>
@@ -59,8 +58,8 @@ or, for embedded css:
   ... // stylesheet
 ]&gt;</code></pre>
 
-Correspondingly, style tags and stylesheet links must be abolished,
-for stylesheets spanning over multiple files, <code>@import</code>
+At the same time, style tags and stylesheet links must be abolished.
+For stylesheets spanning over multiple files, <code>@import</code>
 rules can be used:
 <pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
   @import <a href='css-reworked'>./common.css</a> screen, projection;
