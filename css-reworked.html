@@ -80,7 +80,7 @@ this property.<br/>
 <h2>Element definitions</h2>
 The last and most interesting thing we want to add to CSS is the
 element definition rule. Take a look at the following example:
-<pre><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
+<pre><b>@element</b> Timer(start : Nat) <b>@extends</b> VisualElement(alt: [content]) {
   <code>&lt;block class=timer-box&gt;
     &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
   &lt;/block&gt;</code>
@@ -130,9 +130,8 @@ and usage of inheritance.<br/>
 By inheriting from DisplayObject or FormattingObject we would
 declare our tag is not intended to be used in top level HTML
 document, but only on visual medias. By inheriting from
-VisualElement and providing <code>aria:role</code> we declare
-that our element has genuine semantical meaning, alas only
-in on visual medias (like images, banners etc), on all the
+VisualElement we declare that our element has genuine semantical
+meaning, yet only on visual medias (like images, banners, etc), on all the
 other medias alt-text can be used instead, our definition
 forwards the (optional) content of the element as alt-text,
 i.e. if the user considers alternative text desirable, they
