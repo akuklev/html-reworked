@@ -23,10 +23,10 @@ and <code>@font-face</code>), and unprefixed rules. We'd gain more
 consistency and natural syntax for scoped rules by requiring them
 to start with <code>@rule</code>, just like this:
 <pre>
-<b><code>@rule</code></b> div.sidenote {
+<b>@rule</b> div.sidenote {
   font: smaller;
   color: rgba(0%, 0%, 0%, 0.9);
-  <b><code>@rule</code></b> strong {
+  <b>@rule</b> strong {
     font.weight: 300;
   }
 }
@@ -63,7 +63,7 @@ tags (<code>&lt;none/&gt;</code>, <code>&lt;tabstop/&gt;</code>,
 and all the table stuff) in these templates if we're working on
 visual media and deprecate the “display” property in favour of them:
 <br/>
-<b><code>@rule</code></b> div.remark {
+<b>@rule</b> div.remark {
   &lt;run-in&gt;[content]&lt;/run-in&gt;
   font.size: smaller;
 }
@@ -80,7 +80,7 @@ this property.<br/>
 <h2>Element definitions</h2>
 The last and most interesting thing we want to add to CSS is the
 element definition rule. Take a look at the following example:
-<p><code><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
+<p><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
   &lt;block class=timer-box&gt;
     &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
   &lt;/block&gt;
@@ -136,5 +136,5 @@ in on visual medias (like images, banners etc), on all the
 other medias alt-text can be used instead, our definition
 forwards the (optional) content of the element as alt-text,
 i.e. if the user considers alternative text desirable, they
-can use &lt;Timer&gt;alt. text&lt;/Timer&gt; instead of &lt;Timer/&gt;.
-</code></html>
+can use <code>&lt;Timer&gt;alt. text&lt;/Timer&gt;</code> instead of <code>&lt;Timer/&gt;</code>.
+</html>
