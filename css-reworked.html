@@ -104,7 +104,7 @@ element definition rule. Take a look at the following example:
   this.time = attr.start
 
   tick() {
-    this.time: ++this.time;
+    ++this.time;
   }
 
   var timer = setInterval(this.tick, 1000ms)
@@ -137,4 +137,15 @@ forwards the (optional) content of the element as alt. text,
 i.e. if the user considers alternative text desirable, they
 can use <nobr><code>&lt;Timer&gt;</code>alt. text<code>&lt;/Timer&gt;</code></nobr>
 instead of <code>&lt;Timer/&gt;</code>.
+
+<h2>Stylesheet as doctype extension</h2>
+Since our reworked stylesheets define new elements (and also defines their attributes,
+specifies their type and optionally their default value or that they are required), it
+should be considered a part of the DTD, so we propose the following doctype declaration
+for <a href='/'>HTMLreworked</a> documents:
+<pre><code>&lt;<b>DOCTYPE</b> html @with /path/to/stylesheet&gt;</code></pre>
+or, for embedded css:
+<pre><code>&lt;<b>DOCTYPE</b> html @with [
+... // stylesheet
+]&gt;</code></pre>
 </html>
