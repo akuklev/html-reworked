@@ -64,13 +64,11 @@ tags (<code>&lt;none/&gt;</code>, <code>&lt;tabstop/&gt;</code>,
 <code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code>,
 and all the table stuff) in these templates if we're working on
 visual media and deprecate the “display” property in favour of them:
-<xtag type="run-in">[content]</xtag>
 <pre>
 <b>@rule</b> div.remark {
-  <xtag type="run-in">[content]</xtag>
+  <code>&lt;run-in&gt;[content]&lt;/run-in&gt;</code>
   font.size: smaller;
 }
-<code>&lt;run-in&gt;[content]&lt;/run-in&gt;</code>
 </pre>
 <br/>
 We also require fixing display mode for proper HTML elements (i.e.
@@ -84,7 +82,7 @@ this property.<br/>
 <h2>Element definitions</h2>
 The last and most interesting thing we want to add to CSS is the
 element definition rule. Take a look at the following example:
-<p><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
+<pre><b>@element</b> Timer (start : Nat @default(0)) <b>@extends</b> VisualElement(aria:role: status, alt: [content]) {
   <code>&lt;block class=timer-box&gt;
     &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
   &lt;/block&gt;</code>
