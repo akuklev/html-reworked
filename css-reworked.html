@@ -49,10 +49,10 @@ li:before {
 But you cannot really put HTML content there, and interpolation works
 ugly. We propose the following syntax:
 <pre>
-<code><b>@rule</b> li.before {
-  &lt;span&gt;•&lt;sub&gt;[counter]&lt;/sub&gt;&lt;/span&gt;
+<b>@rule</b> li.before {
+  <code>&lt;span&gt;•&lt;sub&gt;[counter]&lt;/sub&gt;&lt;/span&gt;</code>
   padding.right: 8px;
-}</code>
+}
 </pre>
 So, just put HTML template in the beginning of the body of the rule.
 To improve consistency yet more let's allow additional presentational
