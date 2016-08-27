@@ -116,7 +116,7 @@ element definition rule. Take a look at the following example:
 </pre>
 
 This is a port of an example from riot.js to our syntax, here we
-define a new visual element &lt;Timer/&gt;. In the definition we
+define a new visual element <code>&lt;Timer/&gt;</code>. In the definition we
 mix HTML (including presentational tags for we're on a visual
 media), CSS and JavaScript and observe that they compose well.
 
@@ -127,14 +127,14 @@ do not use &lt;script&gt; tag for enclosing styles, since
 JavaScript (and most other applicable programming languages),
 and usage of inheritance.<br/>
 <br/>
-By inheriting from DisplayObject or FormattingObject we would
+By inheriting from <code>DisplayObject</code> or <code>FormattingObject</code> we would
 declare our tag is not intended to be used in top level HTML
 document, but only on visual medias. By inheriting from
-VisualElement we declare that our element has genuine semantical
+<code>VisualElement</code> we declare that our element has genuine semantical
 meaning, yet only on visual medias (like images, banners, etc), on all the
-other medias alt-text can be used instead, our definition
-forwards the (optional) content of the element as alt-text,
+other medias alt. text can be used instead, our definition
+forwards the (optional) content of the element as alt. text,
 i.e. if the user considers alternative text desirable, they
-can use <code>&lt;Timer&gt;alt. text&lt;/Timer&gt;</code>
+can use <nobr><code>&lt;Timer&gt;</code>alt. text<code>&lt;/Timer&gt;</code></nobr>
 instead of <code>&lt;Timer/&gt;</code>.
 </html>
