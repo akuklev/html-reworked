@@ -33,9 +33,9 @@ to start with <code>@rule</code>, just like this:
 }
 </pre>
 It would be also nice to fix once and for all syntax for interpolation
-of expressions (in host language, JavaScript by default), preferably
-square brakets. Assuming the “host language” is CSS-units-aware, we
-can dispense with <code>calc(..)</code> and <code>attr(..)</code> in
+of expressions (in scripting language, JavaScript by default), preferably
+square brakets. Assuming the scripting language is CSS-units-aware, we
+can dispense with <code>calc(·)</code> and <code>attr(·)</code> in
 favour of stuff like <code>[1em + 5px + additional-width]</code>.<br/>
 <br/>
 You probably know about how <code>&lt;li&gt;'s</code> are styled:
@@ -101,7 +101,7 @@ element definition rule. Take a look at the following example:
     margin: 0;
   }
   
-  this.time = opts.start
+  this.time = attr.start
 
   tick() {
     this.time: ++this.time;
