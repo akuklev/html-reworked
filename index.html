@@ -54,15 +54,15 @@ considered a part of the DTD, so we propose the following doctype definition for
 <pre><code>&lt;<b>!DOCTYPE</b> html <b>@with</b> /path/to/stylesheet&gt;</code></pre>
 or, for embedded css:
 <pre><code>&lt;<b>!DOCTYPE</b> html <b>@with</b> [
-... // stylesheet
+  ... // stylesheet
 ]&gt;</code></pre>
 
 Correspondingly, style tags and stylesheet links must be abolished,
 for stylesheets spanning over multiple files, <code>@import</code>
 rules can be used:
 <pre><code>&lt;<b>!DOCTYPE</b> html <b>@with</b> [
-@import <a href='css-reworked'>./common.css</a> screen, projection;
-@import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
+  @import <a href='css-reworked'>./common.css</a> screen, projection;
+  @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
 ]&gt;</code></pre>
 
 <h2>Dream of a Rich Text Language</h2>
