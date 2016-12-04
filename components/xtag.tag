@@ -9,10 +9,10 @@
 /><arrow-left-invisible>&lt;</arrow-left-invisible
 ><inverted><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type}
-><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px;' each={class in classes}><wbr/>.{class}</span
-><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px;' if={opts.xid}><wbr/> {opts.xid}</span
-><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px;' if={opts.xopts && !opts.short}><wbr/> {'{' + opts.xopts + '}'}</span
-><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px;' if={opts.xdirs}><wbr/>┆{opts.xdirs}</span
+><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
+><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/> {opts.xid}</span
+><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/> {'{' + opts.xopts + '}'}</span
+><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>┆{opts.xdirs}</span
 ></inverted
 ><virtual if={!isVoidTag}
 ><nobr><pad/><inarrow-left-top
