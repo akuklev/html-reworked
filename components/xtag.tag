@@ -12,7 +12,7 @@
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</span
-><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>┆{opts.xdirs}</span
+><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</span
 ></inverted
 ><virtual if={!isVoidTag}
 ><nobr><pad/><inarrow-left-top
@@ -187,7 +187,7 @@ span.className {
   display:inline-block;
 }
 
-span.options {
+span.options,  span.directives{
   font-size: smaller;
   display:inline-block;
 }
