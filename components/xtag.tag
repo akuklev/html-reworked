@@ -13,7 +13,7 @@
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</span
 ><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>┆{opts.xdirs}</span
-></inverted
+>&#8203;</inverted
 ><virtual if={!isVoidTag}
 ><nobr><pad/><inarrow-left-top
   name=itp
@@ -108,7 +108,7 @@ arrow-right-bottom {
 }
 
 arrow-right-top {
-  margin-bottom: 3px; /* TODO */
+  margin-top: 3px; /* TODO */
   width: 0;
   height: 0; 
   border-top: inset transparent;
@@ -140,7 +140,7 @@ inarrow-left-bottom {
 }
 
 inarrow-right-top {
-  margin-bottom: 3px; /* TODO */
+  margin-top: 3px; /* TODO */
   width: 0;
   height: 0; 
   border-bottom: 0.6ex inset transparent; 
