@@ -171,6 +171,11 @@ inverted.pad-right {
   padding-right: 0.5ex;
 }
 
+inverted.pad-right {
+  padding-left: 0.5ex;
+  margin-left: -0.5ex;
+}
+
 pad {}
 
 span.name, span.directives, span.className, span.options {
