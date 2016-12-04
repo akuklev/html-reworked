@@ -10,8 +10,8 @@
 ><inverted><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
-><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/> {opts.xid}</span
-><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/> {'{' + opts.xopts + '}'}</span
+><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
+><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</span
 ><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>┆{opts.xdirs}</span
 ></inverted
 ><virtual if={!isVoidTag}
@@ -68,6 +68,7 @@ arrow-left-invisible {
 }
 
 arrow-left-bottom {
+  margin-bottom: 2px; /* TODO */
   width: 0;
   height: 0; 
   border-bottom: inset transparent; 
@@ -77,6 +78,7 @@ arrow-left-bottom {
 }
 
 arrow-left-top {
+  margin-top: 3px; /* TODO */
   width: 0;
   height: 0; 
   border-top: inset transparent;
@@ -96,6 +98,7 @@ arrow-right-invisible {
 }
 
 arrow-right-bottom {
+  margin-bottom: 2px; /* TODO */
   width: 0;
   height: 0; 
   border-bottom: inset transparent; 
@@ -105,6 +108,7 @@ arrow-right-bottom {
 }
 
 arrow-right-top {
+  margin-bottom: 3px; /* TODO */
   width: 0;
   height: 0; 
   border-top: inset transparent;
@@ -115,6 +119,7 @@ arrow-right-top {
 }
 
 inarrow-left-top {
+  margin-top: 3px; /* TODO */
   width: 0;
   height: 0;
   border-bottom: 0.6ex inset transparent; 
@@ -124,6 +129,7 @@ inarrow-left-top {
 }
 
 inarrow-left-bottom {
+  margin-bottom: 2px; /* TODO */
   width: 0;
   height: 0; 
   border-top: 0.6ex inset transparent;
@@ -134,6 +140,7 @@ inarrow-left-bottom {
 }
 
 inarrow-right-top {
+  margin-bottom: 3px; /* TODO */
   width: 0;
   height: 0; 
   border-bottom: 0.6ex inset transparent; 
@@ -143,6 +150,7 @@ inarrow-right-top {
 }
 
 inarrow-right-bottom {
+  margin-bottom: 2px; /* TODO */
   width: 0;
   height: 0; 
   border-top: 0.6ex inset transparent;
