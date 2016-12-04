@@ -44,7 +44,7 @@ style="
     margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} - 0.5ex);
     width: calc({itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} + 0.5ex);
     ">&lt;</arrow-left-invisible
-><inverted if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
+><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
 ></inverted></virtual><pad/><arrow-right-top
   name=rtp
