@@ -45,7 +45,7 @@ style="
     width: calc({itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} + 0.5ex);
     ">&lt;</arrow-left-invisible
 ><inverted if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
-><span class='options' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
+><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
 ></inverted></virtual><pad/><arrow-right-top
   name=rtp
   style="
