@@ -7,8 +7,8 @@
     border-top-width: {flapHeight};
     margin-left: 0px"
 /><arrow-left-invisible>&lt;</arrow-left-invisible
-><inverted class={pad-right: !isVoidTag && !!opts.type && !classes && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
-><inverted class={pad-right: !isVoidTag && !!opts.type} if={!!classes || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
+><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
+><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</span
@@ -171,7 +171,7 @@ inverted.pad-right {
   padding-right: 0.5ex;
 }
 
-inverted.pad-right {
+inverted.pad-left {
   padding-left: 0.5ex;
   margin-left: -0.5ex;
 }
