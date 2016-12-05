@@ -55,6 +55,7 @@ triangle-left {
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
   color: transparent;
+  width: 1ex;
 }
 
 triangle-left:before {
@@ -65,7 +66,7 @@ triangle-left:before {
   position: absolute;
   width: 0;
   height: 0;
-  margin-top: 3px;
+  margin-top: -1px;
   border-top: 9px solid transparent;
   border-right: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
