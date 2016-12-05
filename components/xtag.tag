@@ -51,7 +51,7 @@ style="
 <style scoped>
 
 triangle-left {
-  display: inline-block;
+  display: inline;
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
   color: transparent;
@@ -66,7 +66,8 @@ triangle-left:before {
   position: absolute;
   width: 0;
   height: 0;
-  margin-top: -1px;
+  z-index: -1;
+  margin-top: 3px;
   border-top: 9px solid transparent;
   border-right: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
