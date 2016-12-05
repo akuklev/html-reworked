@@ -10,7 +10,7 @@
 ><trapezoid-right>&gt;</trapezoid-right><wbr/><virtual name="content"><yield
 /></virtual><wbr/
 ></virtual><nobr
-><virtual if={!isVoidTag}><trapezoid-left>&lt;/</trapezoid-left><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
+><virtual if={!isVoidTag}><trapezoid-left>&lt;</trapezoid-left><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
 ></inverted></virtual><triangle-right>&gt;</triangle-right></nobr>
 
@@ -85,7 +85,6 @@ trapezoid-left {
   display: inline;
   font-family: "Anka/Coder Condensed";
   color: transparent;
-  margin-right: -1ex;
 }
 
 trapezoid-left:before {
@@ -100,6 +99,10 @@ trapezoid-left:before {
   border-top: 4px solid rgb(30%, 40%, 45%);
   border-left: 0.5ex solid transparent;
   border-bottom: 4px solid rgb(30%, 40%, 45%);
+}
+
+.eat-digraph {
+  margin-right: -1ex;
 }
 
 inverted {
