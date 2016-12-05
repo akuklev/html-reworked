@@ -7,20 +7,7 @@
 ><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</span
 ></inverted
 ><virtual if={!isVoidTag}
-><nobr><pad/><inarrow-left-top
-  name=itp
-  style="
-    border-top-width: {hlop}px;
-    border-left-width: {hlop}px;"
-/><inarrow-left-bottom
-style="
-    border-bottom-width: {hlop}px;
-    border-left-width: {hlop}px;
-    margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
-/><arrow-right-invisible style="
-    margin-left: calc(-{itp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio} - 0.5ex);
-    width: calc({itp.offsetWidth * window.devicePixelRatio}px / {window.devicePixelRatio} + 0.5ex);">&gt;</arrow-right-invisible
-></nobr><wbr/><virtual name="content"><yield
+><trapezoid-right>&gt;</trapezoid-right><wbr/><virtual name="content"><yield
 /></virtual><wbr/
 ></virtual><nobr
 ><virtual if={!isVoidTag}><inarrow-right-top style="
@@ -85,6 +72,26 @@ triangle-right:before {
   border-top: 9px solid transparent;
   border-left: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
+}
+
+trapezoid-right {
+  display: inline;
+  font-family: "Anka/Coder Condensed";
+  color: transparent;
+  width: 1ex;
+}
+
+trapezoid-right:before {
+  content: "";
+  font-family: "Anka/Coder Condensed";
+  position: absolute;
+  width: 0;
+  height: 6;
+  z-index: -1;
+  margin-top: 3px;
+  border-top: 6px solid transparent;
+  border-left: 1ex solid rgb(30%, 40%, 45%);
+  border-bottom: 6px solid transparent;
 }
 
 inarrow-left-top {
