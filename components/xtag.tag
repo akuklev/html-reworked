@@ -73,7 +73,7 @@ triangle-right {
   width: 1ex;
 }
 
-triangle-right:after {
+triangle-right:before {
   content: "";
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
@@ -82,7 +82,6 @@ triangle-right:after {
   height: 0;
   z-index: -1;
   margin-top: 3px;
-  margin-left: -1ex;
   border-top: 9px solid transparent;
   border-left: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
