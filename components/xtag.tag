@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><nobr><arrow-left-bottom
+><nobr><triangle-left/><arrow-left-bottom
   name=lbt
   style="border-bottom-width: {flipHeight}; margin-right: calc(-{ltp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
 /><arrow-left-top
@@ -57,6 +57,14 @@ style="
 
 
 <style scoped>
+
+triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 8px solid transparent;
+	border-right: 1ex solid red;
+	border-bottom: 8px solid transparent;
+}
 
 arrow-left-invisible {
   color: transparent;
