@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><nobr><triangle-left><span style="position:relative">&lt;</span></triangle-left><b class="tagType">&lt;</b><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
+><nobr><triangle-left>&lt;</triangle-left><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
@@ -52,15 +52,22 @@ style="
 
 triangle-left {
   display: inline-block;
-  vertical-align: -15%;
+  font-family: "Anka/Coder Condensed";
+  font-weight: bold;
+  color: transparent;
+}
+
+triangle-left:before {
+  font-family: "Anka/Coder Condensed";
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
   width: 0;
   height: 0;
+  margin-top: 3px;
   border-top: 9px solid transparent;
   border-right: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
-  margin-right: -1ex;
-  font-family: "Anka/Coder Condensed";
-  font-weight: bold;
 }
 
 arrow-left-invisible {
