@@ -38,7 +38,7 @@ style="
     ">&lt;</arrow-left-invisible
 ><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
-></inverted></virtual><pad/><triangle-right>&lt;</triangle-right></nobr>
+></inverted></virtual><triangle-right>&gt;</triangle-right></nobr>
 
 
 <style scoped>
