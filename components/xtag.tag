@@ -57,7 +57,7 @@ triangle-left {
   color: transparent;
 }
 
-triangle-left::before {
+triangle-left:before {
   content: "";
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
