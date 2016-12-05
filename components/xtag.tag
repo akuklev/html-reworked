@@ -65,7 +65,6 @@ trapezoid-right {
   display: inline;
   font-family: "Anka/Coder Condensed";
   color: transparent;
-  width: 1ex;
 }
 
 trapezoid-right:before {
@@ -86,7 +85,7 @@ trapezoid-left {
   display: inline;
   font-family: "Anka/Coder Condensed";
   color: transparent;
-  width: 1ex;
+  margin-right: -1ex;
 }
 
 trapezoid-left:before {
@@ -94,7 +93,7 @@ trapezoid-left:before {
   font-family: "Anka/Coder Condensed";
   position: absolute;
   width: 0;
-  margin-left: 0.5ex;
+  margin-left: 0.2ex;
   height: 10px;
   z-index: -1;
   margin-top: 3px;
