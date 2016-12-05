@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><nobr><triangle-left/><b class="tagType">&lt;</b><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
+><nobr><triangle-left><span style="position:relative">&lt;</span></triangle-left><b class="tagType">&lt;</b><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
