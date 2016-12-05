@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><nobr><triangle-left/><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">&lt;{opts.type}</b></inverted></nobr
+><nobr><triangle-left/><b class="tagType">&lt;</b><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
@@ -56,8 +56,11 @@ triangle-left {
   width: 0;
   height: 0;
   border-top: 9px solid transparent;
-  border-right: 1ex solid rgb(30%, 40%, 45%);;
+  border-right: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
+  margin-right: -1ex;
+  font-family: "Anka/Coder Condensed";
+  font-weight: bold;
 }
 
 arrow-left-invisible {
@@ -197,11 +200,6 @@ span.options,  span.directives{
 
 b.tagType {
   font-family: "Anka/Coder Condensed";
-}
-
-b.tagType::first-letter {
-  color: transparent;
-  overflow: hidden;
 }
 </style>
 
