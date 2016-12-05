@@ -86,12 +86,13 @@ trapezoid-right:before {
   font-family: "Anka/Coder Condensed";
   position: absolute;
   width: 0;
-  height: 6;
+  margin-left: 0.5ex;
+  height: 10px;
   z-index: -1;
   margin-top: 3px;
-  border-top: 6px solid transparent;
-  border-left: 1ex solid rgb(30%, 40%, 45%);
-  border-bottom: 6px solid transparent;
+  border-top: 4px solid rgb(30%, 40%, 45%);
+  border-right: 0.5ex solid transparent;
+  border-bottom: 4px solid rgb(30%, 40%, 45%);
 }
 
 inarrow-left-top {
@@ -145,6 +146,7 @@ inverted {
 
 inverted.pad-right {
   padding-right: 0.5ex;
+  margin-right: -0.5ex;
 }
 
 inverted.pad-left {
