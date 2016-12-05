@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><nobr><triangle-left/><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
+><nobr><triangle-left/><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">&lt;{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
 ><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
@@ -51,12 +51,13 @@ style="
 <style scoped>
 
 triangle-left {
-  display: block;
+  display: inline-block;
+  vertical-align: -15%
   width: 0;
   height: 0;
-  border-top: 8px solid transparent;
+  border-top: 9px solid transparent;
   border-right: 1ex solid rgb(30%, 40%, 45%);;
-  border-bottom: 8px solid transparent;
+  border-bottom: 9px solid transparent;
 }
 
 arrow-left-invisible {
