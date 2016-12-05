@@ -149,12 +149,12 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
-    console.log(that);
-    var height = that.lbt.getBoundingClientRect().bottom - that.ltp.getBoundingClientRect().top + 1/d;
+   
+   // var height = that.lbt.getBoundingClientRect().bottom - that.ltp.getBoundingClientRect().top + 1/d;
     that.update({
-      flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
-      flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
-      hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
+   //   flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
+   //   flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
+   //   hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
       isVoidTag: !that.content.innerHTML
     });
   };
