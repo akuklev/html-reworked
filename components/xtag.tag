@@ -38,14 +38,7 @@ style="
     ">&lt;</arrow-left-invisible
 ><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
-></inverted></virtual><pad/><arrow-right-top
-  name=rtp
-  style="
-    border-top-width: {flapHeight};
-    margin-right: calc(-{ltp.getBoundingClientRect().width * window.devicePixelRatio}px / {window.devicePixelRatio})"
-/><arrow-right-bottom
-  style="border-bottom-width: {flipHeight}"
-/><arrow-right-invisible><virtual if={isVoidTag}>/</virtual>&gt;</arrow-right-invisible></nobr>
+></inverted></virtual><pad/><triangle-right>&lt;</triangle-right></nobr>
 
 
 <style scoped>
@@ -73,65 +66,27 @@ triangle-left:before {
   border-bottom: 9px solid transparent;
 }
 
-arrow-left-invisible {
+triangle-right {
+  display: inline;
+  font-family: "Anka/Coder Condensed";
+  font-weight: bold;
   color: transparent;
   width: 1ex;
-  margin-left: -1ex;
-  display: inline-block;
-  color: transparent;
-  overflow: hidden;
-  vertical-align: text-bottom;
 }
 
-arrow-left-bottom {
-  margin-bottom: 2px; /* TODO */
+triangle-right:before {
+  content: "";
+  font-family: "Anka/Coder Condensed";
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
   width: 0;
-  height: 0; 
-  border-bottom: inset transparent; 
-  border-right: 1ex solid rgb(30%, 40%, 45%);
-  display: inline-block;
-  vertical-align: text-bottom;
-}
-
-arrow-left-top {
-  margin-top: 3px; /* TODO */
-  width: 0;
-  height: 0; 
-  border-top: inset transparent;
-  border-right: 1ex solid rgb(30%, 40%, 45%);
-  display: inline-block;
-  vertical-align: text-top;
-  margin-left: -1ex;
-}
-
-arrow-right-invisible {
-  color: transparent;
-  width: 1ex;
-  margin-left: -1ex;
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: text-bottom;
-}
-
-arrow-right-bottom {
-  margin-bottom: 2px; /* TODO */
-  width: 0;
-  height: 0; 
-  border-bottom: inset transparent; 
+  height: 0;
+  z-index: -1;
+  margin-top: 3px;
+  border-top: 9px solid transparent;
   border-left: 1ex solid rgb(30%, 40%, 45%);
-  display: inline-block;
-  vertical-align: text-bottom;
-}
-
-arrow-right-top {
-  margin-top: 3px; /* TODO */
-  width: 0;
-  height: 0; 
-  border-top: inset transparent;
-  border-left: 1ex solid rgb(30%, 40%, 45%);
-  display: inline-block;
-  vertical-align: text-top;
-  margin-right: -1ex;
+  border-bottom: 9px solid transparent;
 }
 
 inarrow-left-top {
