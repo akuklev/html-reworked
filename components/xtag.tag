@@ -55,7 +55,6 @@ triangle-left:before {
   content: "";
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
-  display: inline-block;
   position: absolute;
   width: 0;
   height: 0;
@@ -74,16 +73,16 @@ triangle-right {
   width: 1ex;
 }
 
-triangle-right:before {
+triangle-right:after {
   content: "";
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
-  display: inline-block;
   position: absolute;
   width: 0;
   height: 0;
   z-index: -1;
   margin-top: 3px;
+  margin-left: -1ex;
   border-top: 9px solid transparent;
   border-left: 1ex solid rgb(30%, 40%, 45%);
   border-bottom: 9px solid transparent;
