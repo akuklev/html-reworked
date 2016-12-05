@@ -52,7 +52,7 @@ style="
 
 triangle-left {
   display: inline-block;
-  vertical-align: -15%
+  vertical-align: -15%;
   width: 0;
   height: 0;
   border-top: 9px solid transparent;
@@ -65,6 +65,7 @@ arrow-left-invisible {
   width: 1ex;
   margin-left: -1ex;
   display: inline-block;
+  color: transparent;
   overflow: hidden;
   vertical-align: text-bottom;
 }
@@ -196,6 +197,11 @@ span.options,  span.directives{
 
 b.tagType {
   font-family: "Anka/Coder Condensed";
+}
+
+b.tagType::first-letter {
+  color: transparent;
+  overflow: hidden;
 }
 </style>
 
