@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --ex: {ex}; --flip-height: {flipHeight}; --flap-height: {flapHeight};'
+<xtag style='line-height: calc(0.85em + 2px); --ex: {ex}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -7,7 +7,7 @@
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
 ></virtual><hide if={!isVoidTag}>&gt;</hide></bra
 ><virtual name="content"><yield/></virtual
-><ket class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
+><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
   ><hide>/</hide
   ><tag if={!isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
@@ -45,15 +45,15 @@ ket {
 }
 
 bra:before {
-  margin-left: -0.96ex; /* TODO: Cleanup */
+  margin-left: -0.71ex; /* 0.96 - 0.25 TODO: Cleanup */
   border-top: var(--flip-height) solid transparent;
-  border-right: 1ex solid var(--tag-back-color);
+  border-right: 0.75ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
 }
 
 ket:after {
   border-top: var(--flip-height) solid transparent;
-  border-left: 1ex solid var(--tag-back-color);
+  border-left: 0.75ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
 }
 
@@ -69,18 +69,18 @@ ket.nonvoid {
 
 bra.nonvoid:after {
   margin-left: 0.5ex;
-  height: 10px;
-  border-top: 4px solid var(--tag-back-color);
-  border-right: 0.5ex solid transparent;
-  border-bottom: 4px solid var(--tag-back-color);
+  height: var(--coflo-height);
+  border-top: var(--flo-height) solid var(--tag-back-color);
+  border-right: 0.25ex solid transparent;
+  border-bottom: var(--flo-height) solid var(--tag-back-color);
 }
 
 ket.nonvoid:before {
   margin-left: -0.96ex; /* TODO: Cleanup */
-  height: 10px;
-  border-top: 4px solid var(--tag-back-color);
-  border-left: 0.5ex solid transparent;
-  border-bottom: 4px solid var(--tag-back-color);
+  height: var(--coflo-height);
+  border-top: var(--flo-height) solid var(--tag-back-color);
+  border-left: 0.25ex solid transparent;
+  border-bottom: var(--flo-height) solid var(--tag-back-color);
 }
 
 bra.nonvoid.short:after {
@@ -88,8 +88,13 @@ bra.nonvoid.short:after {
 }
 
 bra.nonvoid.short, ket.void {
-  height: 15px;
+  height: 18px;
   padding: 0;
+}
+
+bra.nonvoid.short {
+  margin-left: 0.72ex; /* 0.96 - 0.25 TODO: Cleanup */
+  margin-right: 0.24ex;  /* 0.96 - 0.72 TODO: Cleanup */
 }
 
 id, cls, opts, dirs {
@@ -116,6 +121,8 @@ tag {
 </style>
 
 this.flapHeight = this.flipHeight = '0.65em';
+this.floHeight = '4px';
+this.cofloHeight = '10px';
 this.ex = '1ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
@@ -124,15 +131,14 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
-    var braRect = that.refs.bra.getBoundingClientRect();
-    var height = braRect.bottom - braRect.top + 1/d;
+    var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
+    var height = rect.bottom - rect.top + 1/d;
     console.log(height);
-    console.log(that.refs);
-    console.log(window.getComputedStyle(that.refs.bra).getPropertyValue("line-height"));
-    console.log(window.getComputedStyle(that.refs.bra, ':before').getPropertyValue("margin-left"));
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
+      floHeight: 'calc(' + Math.floor(height * d / 5) + 'px/'+ d +')',
+      cofloHeight: 'calc(' + Math.ceil(height * d * 3 / 5) + 'px/'+ d +')',
       ex: Math.floor(Math.ceil(height/2)/2) + 'px',
       clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
