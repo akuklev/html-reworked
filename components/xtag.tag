@@ -35,7 +35,7 @@ triangle-left:before {
   z-index: -1;
   margin-top: 3px;
   border-top: 9px solid transparent;
-  border-right: 1ex solid var(--tag-color);
+  border-right: 1ex solid var(--tag-back-color);
   border-bottom: 9px solid transparent;
 }
 
@@ -57,7 +57,7 @@ triangle-right:before {
   z-index: -1;
   margin-top: 3px;
   border-top: 9px solid transparent;
-  border-left: 1ex solid rgb(30%, 40%, 45%);
+  border-left: 1ex solid var(--tag-back-color);
   border-bottom: 9px solid transparent;
 }
 
@@ -76,9 +76,9 @@ trapezoid-right:before {
   height: 10px;
   z-index: -1;
   margin-top: 3px;
-  border-top: 4px solid rgb(30%, 40%, 45%);
+  border-top: 4px solid var(--tag-back-color);
   border-right: 0.5ex solid transparent;
-  border-bottom: 4px solid rgb(30%, 40%, 45%);
+  border-bottom: 4px solid var(--tag-back-color);
 }
 
 trapezoid-left {
@@ -96,9 +96,9 @@ trapezoid-left:before {
   height: 10px;
   z-index: -1;
   margin-top: 3px;
-  border-top: 4px solid rgb(30%, 40%, 45%);
+  border-top: 4px solid var(--tag-back-color);
   border-left: 0.5ex solid transparent;
-  border-bottom: 4px solid rgb(30%, 40%, 45%);
+  border-bottom: 4px solid var(--tag-back-color);
 }
 
 .eat-digraph {
@@ -108,8 +108,8 @@ trapezoid-left:before {
 inverted {
   display: inline-block;
   color: white;
-  background: rgb(30%, 40%, 45%);
-  text-shadow: -1px 0 1px rgb(30%, 40%, 45%), 0 1px 1px rgb(30%, 40%, 45%), 1px 0 1px rgb(30%, 40%, 45%), 0 -1px 1px rgb(30%, 40%, 45%);
+  background: var(--tag-back-color);
+  text-shadow: -1px 0 1px var(--tag-back-color), 0 1px 1px var(--tag-back-color), 1px 0 1px var(--tag-back-color), 0 -1px 1px var(--tag-back-color);
 }
 
 inverted.pad-right {
@@ -133,7 +133,7 @@ span.className {
   display:inline-block;
 }
 
-span.options,  span.directives{
+span.options, span.directives{
   font-size: smaller;
   display:inline-block;
 }
