@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --client-height: {clHeight}px'
+<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --client-height: {clHeight}px; --flip-height: {flipHeight}, --flap-height: {flapHeight}'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -46,9 +46,9 @@ ket {
 
 bra:before {
   margin-left: -1ex;
-  border-top: 9px solid transparent;
+  border-top: var(--flip-height) solid transparent;
   border-right: 1ex solid var(--tag-back-color);
-  border-bottom: 9px solid transparent;
+  border-bottom: var(--flap-height) solid transparent;
 }
 
 ket:after {
@@ -126,11 +126,11 @@ this.on('mount', function() {
   var adjustSize = function() {
     var d = window.devicePixelRatio;
     var braRect = that.refs.bra.getBoundingClientRect();
-    var height = braRect.bottom - braRect.top + 1/d;
+    var height = braRect.bottom - braRect.top;
     console.log(height);
     that.update({
-   //   flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
-   //   flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
+      flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
+      flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
    //   hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
       clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
