@@ -45,7 +45,7 @@ ket {
 }
 
 bra:before {
-  margin-left: -1ex;
+  margin-left: -var(--ex);
   border-top: var(--flip-height) solid transparent;
   border-right: 1ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
