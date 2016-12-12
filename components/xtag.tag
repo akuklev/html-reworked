@@ -16,7 +16,7 @@
 ><hide>&gt;</hide></ket
 ><style scoped>
 hide {
-  display: none;
+  font-size: 0;
 }
 
 bra, ket {
@@ -96,7 +96,7 @@ id, cls, opts, dirs {
   font-family: "Anka/Coder Narrow";
 }
 
-id, cls, opts, dirs {
+id, cls, opts, dirs, hide {
   line-height: 0;
 }
 
