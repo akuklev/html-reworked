@@ -1,15 +1,13 @@
-<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --tag-color: green;'
-><nobr><triangle-left class={eat-digraph: !!opts.short}>&lt;</triangle-left><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
-><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
-><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
-><span class='name' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xid}><wbr/>&nbsp;{opts.xid}</span
-><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && !opts.short}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</span
-><span class='directives' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</span
-></inverted
-><virtual if={!isVoidTag}
-><trapezoid-right>&gt;</trapezoid-right><wbr/><virtual name="content"><yield
-/></virtual><wbr/
-></virtual><nobr
+<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
+><bra if={!opts.short}
+  ><tag>{opts.type}</tag
+  ><class each={class in classes}><wbr/>.{class}</class
+  ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}></id
+  ><opts><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
+  ><dirs><wbr/>&nbsp;{opts.xdirs}</dirs
+></bra
+><virtual name="content"><yield/></virtual
+><nobr
 ><virtual if={!isVoidTag}><trapezoid-left class="eat-digraph">&lt;/</trapezoid-left><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
 ><span class='options' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' if={opts.xopts && opts.short}>{'{' + opts.xopts + '}'}</span
 ></inverted></virtual><triangle-right>&gt;</triangle-right></nobr>
@@ -17,15 +15,8 @@
 
 <style scoped>
 
-triangle-left {
-  display: inline;
-  font-family: "Anka/Coder Condensed";
-  font-weight: bold;
-  color: transparent;
-  width: 1ex;
-}
 
-triangle-left:before {
+bra:before {
   content: "";
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
@@ -105,9 +96,9 @@ trapezoid-left:before {
   margin-right: -1ex;
 }
 
-inverted {
+bra, inverted {
   display: inline-block;
-  color: white;
+  color: var(--tag-text-color);
   background: var(--tag-back-color);
   text-shadow: -1px 0 1px var(--tag-back-color), 0 1px 1px var(--tag-back-color), 1px 0 1px var(--tag-back-color), 0 -1px 1px var(--tag-back-color);
 }
@@ -124,21 +115,21 @@ inverted.pad-left {
 
 pad {}
 
-span.name, span.directives, span.className, span.options {
+id, class, opts, dirs, span.name, span.directives, span.className, span.options {
   font-family: "Anka/Coder Narrow";
 }
 
-span.className {
+class, span.className {
+  display:inline-block;
   font-size: small;
-  display:inline-block;
 }
 
-span.options, span.directives{
+opts, dirs, span.options, span.directives{
+  display:inline-block;
   font-size: smaller;
-  display:inline-block;
 }
 
-b.tagType {
+tag, b.tagType {
   font-family: "Anka/Coder Condensed";
 }
 </style>
