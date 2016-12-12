@@ -57,7 +57,6 @@ ket:after {
   height: 0;
   z-index: -1;
   position: absolute;
-  margin-left: 1ex;
   border-top: 9px solid transparent;
   border-left: 1ex solid var(--tag-back-color);
   border-bottom: 9px solid transparent;
@@ -66,6 +65,11 @@ ket:after {
 bra.nonvoid {
   padding-right: 0.5ex;
   margin-right: 0.5ex;
+}
+
+ket.nonvoid {
+  padding-left: 0.5ex;
+  margin-left: 0.5ex;
 }
 
 bra.nonvoid:after {
@@ -86,7 +90,7 @@ ket.nonvoid:before {
   font-family: "Anka/Coder Condensed";
   position: absolute;
   width: 0;
-  margin-left: 0.2ex;
+  left: -1ex;
   height: 10px;
   z-index: -1;
   border-top: 4px solid var(--tag-back-color);
