@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra><virtial if={!opts.short}>
+><bra><virtual if={!opts.short}>
   ><tag>{opts.type}</tag
   ><class each={class in classes}><wbr/>.{class}</class
   ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
