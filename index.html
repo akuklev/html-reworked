@@ -4,7 +4,7 @@
   <title>Better HTML</title>
   <link rel="preload" href="components/xtag.tag" as="script">
   <link rel="preload" href="stylesheets/style.css" as="style">
-  <link rel="preload" href="//cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js" as="script">
+  <link rel="preload" href="//cdn.jsdelivr.net/riot/3.0/riot+compiler.min.js" as="script">
   <link rel='stylesheet' type="text/css" href='stylesheets/style.css'>
 </head>
 
@@ -27,7 +27,7 @@ like a part of the text, regain the symmetry between opening and closing tags.<b
 <br/>
 <xtag type='Div' xid='example'><div class='cindented'>
   Text with a <xtag type='Span' xclass='emph'>of text</xtag>,<br/> an <xtag type='Image' xopts='src: ./smiley.png'></xtag>, and an<br/>
-  optional <xtag type='Button' xid='play' xdirs='@if(ui-enabled)'></xtag>.</div>
+  optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>.</div>
 </xtag><br/>
 <br/>
 Remarks on notation:<br/>
@@ -86,6 +86,6 @@ makes a perfect language for designing interactive visual UIs.<br/>
 Refs: <a href='http://akuklev.livejournal.com/1173309.html'>//akuklev.livejournal.com/1173309</a>
 
 <script src='components/xtag.tag' type='riot/tag'></script>
-<script src='//cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js'></script>
+<script src='//cdn.jsdelivr.net/riot/3.0/riot+compiler.min.js'></script>
 <script> riot.mount('*') </script>
 </html>
