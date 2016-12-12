@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra><virtual if={!opts.short}
+><bra class={nonvoid: !isVoidTag}><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><class each={class in classes}><wbr/>.{class}</class
   ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
@@ -30,6 +30,25 @@ bra:before {
   border-top: 9px solid transparent;
   border-right: 1ex solid var(--tag-back-color);
   border-bottom: 9px solid transparent;
+}
+
+bra.nonvoid {
+  padding-right: 0.5ex;
+  margin-right: 0.5ex;
+}
+
+bra.nonvoid:after {
+  content: "";
+  font-family: "Anka/Coder Condensed";
+  position: absolute;
+  width: 0;
+  margin-left: -0.5ex;
+  height: 10px;
+  z-index: -1;
+  margin-top: 3px;
+  border-top: 4px solid var(--tag-back-color);
+  border-right: 0.5ex solid transparent;
+  border-bottom: 4px solid var(--tag-back-color);
 }
 
 triangle-right {
