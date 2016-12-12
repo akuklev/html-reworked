@@ -17,6 +17,10 @@
 
 <style scoped>
 
+xtag {
+  --tag-color: blue;
+}
+
 triangle-left {
   display: inline;
   font-family: "Anka/Coder Condensed";
@@ -35,7 +39,7 @@ triangle-left:before {
   z-index: -1;
   margin-top: 3px;
   border-top: 9px solid transparent;
-  border-right: 1ex solid rgb(30%, 40%, 45%);
+  border-right: 1ex solid var(--tag-color);
   border-bottom: 9px solid transparent;
 }
 
