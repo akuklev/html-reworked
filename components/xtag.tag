@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra><virtual if={!opts.short}>
+><bra><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><class each={class in classes}><wbr/>.{class}</class
   ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
@@ -14,6 +14,10 @@
 
 
 <style scoped>
+bra {
+  margin-left: 1ex;
+}
+
 bra:before {
   content: "";
   font-family: "Anka/Coder Condensed";
@@ -21,7 +25,8 @@ bra:before {
   width: 0;
   height: 0;
   z-index: -1;
-  margin-top: 3px;
+  position: absolute;
+  margin-left: -1ex;
   border-top: 9px solid transparent;
   border-right: 1ex solid var(--tag-back-color);
   border-bottom: 9px solid transparent;
