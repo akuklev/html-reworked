@@ -1,11 +1,11 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra if={!opts.short}
+><bra><virtial if={!opts.short}>
   ><tag>{opts.type}</tag
   ><class each={class in classes}><wbr/>.{class}</class
-  ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}></id
+  ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
-></bra
+></virtual></bra
 ><virtual name="content"><yield/></virtual
 ><nobr
 ><virtual if={!isVoidTag}><trapezoid-left class="eat-digraph">&lt;/</trapezoid-left><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
