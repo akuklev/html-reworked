@@ -45,7 +45,7 @@ ket {
 }
 
 bra:before {
-  margin-left: -var(--ex);
+  margin-left: -1ex;
   border-top: var(--flip-height) solid transparent;
   border-right: 1ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
@@ -125,8 +125,9 @@ this.on('mount', function() {
   var adjustSize = function() {
     var d = window.devicePixelRatio;
     var braRect = that.refs.bra.getBoundingClientRect();
-    var height = braRect.bottom - braRect.top + 1/d;
+    var height = braRect.bottom - braRect.top + d;
     console.log(height);
+    console.log(that.refs.bla);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
