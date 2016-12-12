@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --client-height: {clHeight}px; --flip-height: {flipHeight}, --flap-height: {flapHeight}'
+<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --client-height: {clHeight}px; --flip-height: {flipHeight}; --flap-height: {flapHeight};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
