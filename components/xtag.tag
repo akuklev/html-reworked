@@ -59,7 +59,7 @@ bra.nonvoid.short:after {
 }
 
 bra.nonvoid.short {
-  margin-left: 0.5ex;
+  height: 18px;
   padding: 0;
 }
 
