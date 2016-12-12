@@ -121,6 +121,10 @@ id, class, opts, dirs, span.name, span.directives, span.className, span.options 
   font-family: "Anka/Coder Narrow";
 }
 
+id, class, opts, dirs {
+  line-height: 0;
+}
+
 class, span.className {
   display:inline-block;
   font-size: small;
