@@ -124,7 +124,7 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
-    console.log(height);
+    console.log(that.refs);
     //var braRect = that.refs.bra.getBoundingClientRect();
     //var height = braRect.bottom - braRect.top + 1/d;
     console.log(height);
