@@ -44,3 +44,8 @@ div.cindented {
   padding-left: 1ex;
   line-height: 1.3em;
 }
+
+xtag {
+  --tag-back-color: rgb(30%, 40%, 45%);
+  --tag-text-color: white;
+}
