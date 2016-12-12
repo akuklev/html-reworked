@@ -133,7 +133,7 @@ this.on('mount', function() {
    //   flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
    //   hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
       clHeight: that.refs.bra.clientHeight,
-      isVoidTag: !that.innerHTML
+      isVoidTag: !that._internal.innerHTML
     });
   };
   adjustSize();
