@@ -8,7 +8,7 @@
 ></virtual><hide if={!isVoidTag}>&gt;</hide></bra
 ><virtual name="content"><yield/></virtual
 ><ket class={nonvoid: !isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
-  <hide>/</hide
+  ><hide>/</hide
   ><tag if={!isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
   ><opts if={!!opts.short && opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
