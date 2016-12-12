@@ -125,9 +125,9 @@ this.on('mount', function() {
   var adjustSize = function() {
     var d = window.devicePixelRatio;
     var braRect = that.refs.bra.getBoundingClientRect();
-    var height = braRect.bottom - braRect.top + d;
+    var height = braRect.bottom - braRect.top + 1;
     console.log(height);
-    console.log(that.refs.bla);
+    console.log(that.refs.bra);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
