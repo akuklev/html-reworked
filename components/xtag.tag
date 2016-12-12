@@ -11,7 +11,7 @@
   ><hide>/</hide
   ><tag if={!isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
-  ><opts if={!!opts.short && opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
+  ><opts if={!!opts.short && opts.xopts}><virtual if={!!opts.type || (!!classes && !!classes.length)}><wbr/>&nbsp;</virtual>{'{' + opts.xopts + '}'}</opts
   ><dirs if={!!opts.short && opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
 ><hide>&gt;</hide></ket
 ><style scoped>
