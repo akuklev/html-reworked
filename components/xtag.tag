@@ -18,7 +18,7 @@ bra {
   margin-left: 1ex;
 }
 
-bra:first-element {
+bra:first-child {
   color: red;
 }
 
