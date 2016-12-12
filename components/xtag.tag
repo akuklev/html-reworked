@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra name='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
+><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
   ><id   if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
@@ -127,7 +127,6 @@ this.on('mount', function() {
     console.log(that.refs);
     //var braRect = that.refs.bra.getBoundingClientRect();
     //var height = braRect.bottom - braRect.top + 1/d;
-    console.log(height);
     that.update({
    //   flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
    //   flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
