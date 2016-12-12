@@ -1,11 +1,11 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra class={nonvoid: !isVoidTag}>&lt;<virtual if={!opts.short}
+><bra class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><class each={class in classes}><wbr/>.{class}</class
   ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
-></virtual></bra
+></virtual><hide if={!isVoidTag}>&gt;</hide></bra
 ><virtual name="content"><yield/></virtual
 ><nobr
 ><virtual if={!isVoidTag}><trapezoid-left class="eat-digraph">&lt;/</trapezoid-left><inverted class="pad-left" if={!opts.short || !!opts.xopts}><b class="tagType" if={!opts.short}>{opts.type}</b
@@ -14,12 +14,12 @@
 
 
 <style scoped>
-bra {
-  margin-left: 1ex;
+hide {
+  display: none;
 }
 
-bra:first-child {
-  color: red;
+bra {
+  margin-left: 1ex;
 }
 
 bra:before {
@@ -53,6 +53,16 @@ bra.nonvoid:after {
   border-right: 0.5ex solid transparent;
   border-bottom: 4px solid var(--tag-back-color);
 }
+
+bra.nonvoid.short:after {
+  margin-left: 0;
+}
+
+bra.nonvoid.short {
+  margin-left: 0.5ex;
+  padding: 0;
+}
+
 
 triangle-right {
   display: inline;
