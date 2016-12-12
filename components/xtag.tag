@@ -1,5 +1,5 @@
 <xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
-><bra class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
+><bra id='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
   ><id   if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
@@ -76,7 +76,7 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: -0.5ex;
+  margin-left: -1ex;
   height: 10px;
   border-top: 4px solid var(--tag-back-color);
   border-left: 0.5ex solid transparent;
@@ -124,8 +124,9 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
-   
-   // var height = that.lbt.getBoundingClientRect().bottom - that.ltp.getBoundingClientRect().top + 1/d;
+    var braRect = that.refs.bra.getBoundingClientRect();
+    var height = braRect.bottom - braRect.top + 1/d;
+    console.log(height);
     that.update({
    //   flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
    //   flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
