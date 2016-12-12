@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
+<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --client-height: {clHeight}px'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -115,6 +115,7 @@ tag {
 }
 </style>
 
+this.clHeight = '1em';
 this.flapHeight = this.flipHeight = '0.65em';
 this.hlop = '0.5ex';
 this.isVoidTag = false;
@@ -124,14 +125,15 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
-    console.log(that.refs);
+    console.log(that);
     //var braRect = that.refs.bra.getBoundingClientRect();
     //var height = braRect.bottom - braRect.top + 1/d;
     that.update({
    //   flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
    //   flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
    //   hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
-      isVoidTag: !that.content.innerHTML
+      clHeight: that.refs.bra.clientHeight,
+      isVoidTag: !that.innerHTML
     });
   };
   adjustSize();
