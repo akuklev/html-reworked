@@ -45,7 +45,7 @@ ket {
 }
 
 bra:before {
-  margin-left: -0.96ex; // TODO: Cleanup
+  margin-left: -0.96ex; /* TODO: Cleanup */
   border-top: var(--flip-height) solid transparent;
   border-right: 1ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
@@ -76,7 +76,7 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: -0.96ex; // TODO: Cleanup
+  margin-left: -0.96ex; /* TODO: Cleanup */
   height: 10px;
   border-top: 4px solid var(--tag-back-color);
   border-left: 0.5ex solid transparent;
