@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --client-height: {clHeight}px; --flip-height: {flipHeight}; --flap-height: {flapHeight};'
+<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --ex: {ex}; --flip-height: {flipHeight}; --flap-height: {flapHeight};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -115,9 +115,8 @@ tag {
 }
 </style>
 
-this.clHeight = '1em';
 this.flapHeight = this.flipHeight = '0.65em';
-this.hlop = '0.5ex';
+this.ex = '1ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
@@ -126,12 +125,12 @@ this.on('mount', function() {
   var adjustSize = function() {
     var d = window.devicePixelRatio;
     var braRect = that.refs.bra.getBoundingClientRect();
-    var height = braRect.bottom - braRect.top;
+    var height = braRect.bottom - braRect.top + 1/d;
     console.log(height);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
-   //   hlop: Math.floor(Math.ceil(height/2)/2) + 'px',
+      ex: Math.floor(Math.ceil(height/2)/2) + 'px',
       clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
     });
