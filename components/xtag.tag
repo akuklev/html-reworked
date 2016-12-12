@@ -7,7 +7,7 @@
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
 ></virtual><hide if={!isVoidTag}>&gt;</hide></bra
 ><virtual name="content"><yield/></virtual
-><ket class={nonvoid: !isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
+><ket class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
   ><hide>/</hide
   ><tag if={!isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
@@ -26,6 +26,16 @@ bra, ket {
   text-shadow: -1px 0 1px var(--tag-back-color), 0 1px 1px var(--tag-back-color), 1px 0 1px var(--tag-back-color), 0 -1px 1px var(--tag-back-color);
 }
 
+bra:before, ket:after, bra.nonvoid:after, ket.nonvoid:before {
+  content: "";
+  font-family: "Anka/Coder Condensed";
+  font-weight: bold;
+  width: 0;
+  height: 0;
+  z-index: -1;
+  position: absolute;
+}
+
 bra {
   margin-left: 1ex;
 }
@@ -35,13 +45,6 @@ ket {
 }
 
 bra:before {
-  content: "";
-  font-family: "Anka/Coder Condensed";
-  font-weight: bold;
-  width: 0;
-  height: 0;
-  z-index: -1;
-  position: absolute;
   margin-left: -1ex;
   border-top: 9px solid transparent;
   border-right: 1ex solid var(--tag-back-color);
@@ -49,14 +52,6 @@ bra:before {
 }
 
 ket:after {
-  content: "";
-  font-family: "Anka/Coder Condensed";
-  font-weight: bold;
-  position: absolute;
-  width: 0;
-  height: 0;
-  z-index: -1;
-  position: absolute;
   border-top: 9px solid transparent;
   border-left: 1ex solid var(--tag-back-color);
   border-bottom: 9px solid transparent;
@@ -73,26 +68,16 @@ ket.nonvoid {
 }
 
 bra.nonvoid:after {
-  content: "";
-  font-family: "Anka/Coder Condensed";
-  position: absolute;
-  width: 0;
   margin-left: 0.5ex;
   height: 10px;
-  z-index: -1;
   border-top: 4px solid var(--tag-back-color);
   border-right: 0.5ex solid transparent;
   border-bottom: 4px solid var(--tag-back-color);
 }
 
 ket.nonvoid:before {
-  content: "";
-  font-family: "Anka/Coder Condensed";
-  position: absolute;
-  width: 0;
-  left: -1ex;
+  margin-left: -0.5ex;
   height: 10px;
-  z-index: -1;
   border-top: 4px solid var(--tag-back-color);
   border-left: 0.5ex solid transparent;
   border-bottom: 4px solid var(--tag-back-color);
@@ -102,7 +87,7 @@ bra.nonvoid.short:after {
   margin-left: 0;
 }
 
-bra.nonvoid.short {
+bra.nonvoid.short, ket.void {
   height: 15px;
   padding: 0;
 }
