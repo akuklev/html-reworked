@@ -58,17 +58,17 @@ ket:after {
 }
 
 bra.nonvoid {
-  padding-right: 0.5ex;
-  margin-right: 0.5ex;
+  padding-right: 0.75ex;
+  margin-right: 0.25ex;
 }
 
 ket.nonvoid {
-  padding-left: 0.5ex;
-  margin-left: 0.5ex;
+  padding-left: 0.75ex;
+  margin-left: 0.25ex;
 }
 
 bra.nonvoid:after {
-  margin-left: 0.5ex;
+  margin-left: 0.75ex;
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-right: 0.25ex solid transparent;
