@@ -3,8 +3,8 @@
   ><tag>{opts.type}</tag
   ><class each={class in classes}><wbr/>.{class}</class
   ><id if={opts.xid}><wbr/>&nbsp;{opts.xid}></id
-  ><opts><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
-  ><dirs><wbr/>&nbsp;{opts.xdirs}</dirs
+  ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
+  ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
 ></bra
 ><virtual name="content"><yield/></virtual
 ><nobr
@@ -14,13 +14,10 @@
 
 
 <style scoped>
-
-
 bra:before {
   content: "";
   font-family: "Anka/Coder Condensed";
   font-weight: bold;
-  position: absolute;
   width: 0;
   height: 0;
   z-index: -1;
