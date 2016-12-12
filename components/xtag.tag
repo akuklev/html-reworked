@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px);'
+<xtag style='line-height: calc(0.85em + {window.devicePixelRatio}px); --tag-color: green;'
 ><nobr><triangle-left class={eat-digraph: !!opts.short}>&lt;</triangle-left><inverted class={pad-right: !isVoidTag && !!opts.type && (!classes || !classes.length) && !opts.xid && (!opts.xopts || !!opts.short) && !opts.xdirs}><b class="tagType">{opts.type}</b></inverted></nobr
 ><inverted class={pad-right: !isVoidTag && !!opts.type} if={!(!classes || !classes.length) || !!opts.xid || (!!opts.xopts && !opts.short) || !!opts.xdirs}
 ><span class='className' style='line-height: calc(0.85em + {window.devicePixelRatio}px);' each={class in classes}><wbr/>.{class}</span
@@ -16,10 +16,6 @@
 
 
 <style scoped>
-
-xtag {
-  --tag-color: blue;
-}
 
 triangle-left {
   display: inline;
