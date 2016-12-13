@@ -139,16 +139,17 @@ this.on('mount', function() {
     var d = window.devicePixelRatio;
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
-    var exx = getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width');
-    var exy = getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width') + 
-      getComputedStyle(that.refs.ket).getPropertyValue('padding-left');
+    var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
+    var exy = parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width')) + 
+      parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
+      
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       floHeight: 'calc(' + Math.floor(height * d / 5) + 'px/'+ d +')',
       cofloHeight: 'calc(' + Math.ceil(height * d * 3 / 5) + 'px/'+ d +')',
-      exx: 'calc(-' + parseFloat(exx) * d + 'px/' + d + ')',
-      exy: 'calc(-' + parseFloat(exy) * d + 'px/' + d + ')',
+      exx: 'calc(-' + exx * d + 'px/' + d + ')',
+      exy: 'calc(-' + exy * d + 'px/' + d + ')',
       clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
     });
