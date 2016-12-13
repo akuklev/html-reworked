@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --exz: {exz}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
+<xtag style='line-height: calc(0.85em + 2px); --exg: {exg}; --exx: {exx}; --exy: {exy}; --exz: {exz}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -72,7 +72,7 @@ ket.nonvoid {
 }
 
 bra.nonvoid:after {
-  margin-left: calc(-1 * var(--exx));
+  margin-left: var(--exg);
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-right: 0.25ex solid transparent;
@@ -130,6 +130,7 @@ this.cofloHeight = '10px';
 this.exx = '-0.75ex';
 this.exy = '-0.25ex';
 this.exz = '0.25ex';
+this.exg = '0.75ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
@@ -145,6 +146,7 @@ this.on('mount', function() {
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
     var exy = exz + parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width'));
+    var exg = parseFloat(getComputedStyle(that.refs.bra).getPropertyValue('padding-right'));
 
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
@@ -154,6 +156,7 @@ this.on('mount', function() {
       exx: 'calc(-' + exx * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
       exz: 'calc(' + exz * d + 'px/' + d + ')',
+      exg: 'calc(' + exg * d + 'px/' + d + ')',
       isVoidTag: !that._internal.innerHTML
     });
   };
