@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}'
+<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}; --height1: {refs.bra.clientHeight}; --height2: {getComputedStyle(refs.bra).getPropertyValue("height")};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
