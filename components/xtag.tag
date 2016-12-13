@@ -148,7 +148,7 @@ this.on('mount', function() {
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       floHeight: 'calc(' + Math.ceil(height * d / 5) + 'px/'+ d +')',
-      cofloHeight: 'calc(' + Math.floor(height * d - 2 * Math.ceil(height * d / 5)) + 'px/'+ d +')',
+      cofloHeight: 'calc(' + Math.round(height * d - 2 * Math.ceil(height * d / 5)) + 'px/'+ d +')',
       exx: 'calc(-' + exx * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
       isVoidTag: !that._internal.innerHTML
