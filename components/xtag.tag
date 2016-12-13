@@ -72,7 +72,7 @@ ket.nonvoid {
 }
 
 bra.nonvoid:after {
-  margin-left: calc(-1 * var(--exy));
+  margin-left: calc(-1 * var(--exx));
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-right: 0.25ex solid transparent;
