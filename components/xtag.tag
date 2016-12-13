@@ -40,7 +40,7 @@ bra {
 }
 
 ket {
-  padding-right: 0.25ex;
+  padding-right: var(--exz);
   margin-right: 0.75ex;
 }
 
@@ -58,7 +58,7 @@ ket:after {
 }
 
 ket.nonvoid:after {
-  margin-left: var(--exz);
+  margin-left: 0.25ex;
 }
 
 bra.nonvoid {
@@ -145,7 +145,7 @@ this.on('mount', function() {
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exy = parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width')) + 
       parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
-    var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-right'));
+    var exz = parseFloat(getComputedStyle(that.refs.ket, ":after").getPropertyValue('margin-left'));
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
