@@ -145,7 +145,7 @@ this.on('mount', function() {
       floHeight: 'calc(' + Math.floor(height * d / 5) + 'px/'+ d +')',
       cofloHeight: 'calc(' + Math.ceil(height * d * 3 / 5) + 'px/'+ d +')',
       ex: Math.floor(Math.ceil(height/2)/2) + 'px',
-      exx: exx,
+      exx: 'calc(' + parseFloat(exx) * d + 'px/' + d + ')',
       clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
     });
