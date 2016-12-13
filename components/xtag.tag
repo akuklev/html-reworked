@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
+<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --exz: {exz}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -6,8 +6,7 @@
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
 ></virtual><hide if={!isVoidTag}>&gt;</hide></bra
-><virtual name="content"><yield/></virtual
-><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
+><yield><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
   ><hide>/</hide
   ><tag if={!isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
@@ -59,7 +58,7 @@ ket:after {
 }
 
 ket.nonvoid:after {
-  margin-left: 0.25ex;
+  margin-left: var(--exz);
 }
 
 bra.nonvoid {
@@ -130,6 +129,7 @@ this.floHeight = '4px';
 this.cofloHeight = '10px';
 this.exx = '-0.75ex';
 this.exy = '-0.25ex';
+this.exz = '0.25ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
@@ -145,7 +145,7 @@ this.on('mount', function() {
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exy = parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width')) + 
       parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
-      
+    var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-right'));
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
@@ -153,6 +153,7 @@ this.on('mount', function() {
       cofloHeight: 'calc(' + (height * d - 2 * Math.round(height * d / 5)) + 'px/'+ d +')',
       exx: 'calc(-' + exx * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
+      exz: 'calc(' + exz * d + 'px/' + d + ')',
       isVoidTag: !that._internal.innerHTML
     });
   };
