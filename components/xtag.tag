@@ -41,7 +41,8 @@ bra {
 }
 
 ket {
-  margin-right: 1ex;
+  padding-right: 0.25ex;
+  margin-right: 0.75ex;
 }
 
 bra:before {
@@ -64,7 +65,7 @@ bra.nonvoid {
 
 ket.nonvoid {
   padding-left: 0.75ex;
-  margin-left: var(--exy);
+  margin-left: 0.25ex;
 }
 
 bra.nonvoid:after {
@@ -76,7 +77,7 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: -1ex;
+  margin-left: calc(var(--exx) + var(--exy));
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-left: 0.25ex solid transparent;
