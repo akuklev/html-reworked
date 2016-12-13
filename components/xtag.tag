@@ -58,7 +58,7 @@ ket:after {
 }
 
 ket.nonvoid:after {
-  margin-left: 0.25ex;
+  margin-left: var(--exz);
 }
 
 bra.nonvoid {
@@ -143,9 +143,9 @@ this.on('mount', function() {
     var height = Math.round(parseFloat(getComputedStyle(!opts.short ? that.refs.bra : that.refs.ket).getPropertyValue('height')) * 64) / 64
     if (isChrome) height += 1/d;
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
-    var exy = parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width')) + 
-      parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
-    var exz = parseFloat(getComputedStyle(that.refs.ket, ":after").getPropertyValue('margin-left'));
+    var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
+    var exy = exz + parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width'));
+
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
