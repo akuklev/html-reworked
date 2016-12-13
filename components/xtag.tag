@@ -136,7 +136,7 @@ this.on('mount', function() {
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
     var ex = getComputedStyle(that.refs.bra, 'margin-left');
-    console.log(em);
+    console.log(ex);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
