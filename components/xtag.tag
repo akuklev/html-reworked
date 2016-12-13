@@ -137,8 +137,9 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
-    var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
-    var height = rect.bottom - rect.top + 1/d;
+    //var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
+    //var height = rect.bottom - rect.top + 1/d;
+    var height = Math.round(parseFloat(getComputedStyle(!opts.short ? that.refs.bra : that.refs.ket).getPropertyValue('height')) * 64) / 64
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exy = parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width')) + 
       parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
@@ -150,7 +151,6 @@ this.on('mount', function() {
       cofloHeight: 'calc(' + Math.ceil(height * d * 3 / 5) + 'px/'+ d +')',
       exx: 'calc(-' + exx * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
-      clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
     });
   };
