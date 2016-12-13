@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}; --height1: {refs.bra.clientHeight}; --height2: {getComputedStyle(refs.bra).getPropertyValue("height")};'
+<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -148,7 +148,7 @@ this.on('mount', function() {
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       floHeight: 'calc(' + Math.floor(height * d / 5) + 'px/'+ d +')',
-      cofloHeight: 'calc(' + Math.ceil(height * d * 3 / 5) + 'px/'+ d +')',
+      cofloHeight: 'calc(' + Math.ceil(height * d - 2 * Math.floor(height * d / 5)) + 'px/'+ d +')',
       exx: 'calc(-' + exx * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
       isVoidTag: !that._internal.innerHTML
