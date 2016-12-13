@@ -137,9 +137,11 @@ this.on('mount', function() {
   var that = this;
   var adjustSize = function() {
     var d = window.devicePixelRatio;
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
     //var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     //var height = rect.bottom - rect.top + 1/d;
     var height = Math.round(parseFloat(getComputedStyle(!opts.short ? that.refs.bra : that.refs.ket).getPropertyValue('height')) * 64) / 64
+    if (isChrome) height += 1/d;
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exy = parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width')) + 
       parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left'));
