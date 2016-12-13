@@ -135,7 +135,8 @@ this.on('mount', function() {
     var d = window.devicePixelRatio;
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
-    console.log(height);
+    var ex = getComputetStyle(that.refs.bra, 'margin-left');
+    console.log(em);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
