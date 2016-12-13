@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --ex: {ex}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}'
+<xtag style='line-height: calc(0.85em + 2px); --ex: {ex}; --thin: calc(1px / {window.devicePixelRatio}); --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -45,7 +45,8 @@ ket {
 }
 
 bra:before {
-  margin-left: -0.71ex; /* 0.96 - 0.25 TODO: Cleanup */
+  box-shadow: var(--thin) 0px 0 var(--tag-back-color);
+  margin-left: -0.75ex; /* 0.96 - 0.25 TODO: Cleanup */
   border-top: var(--flip-height) solid transparent;
   border-right: 0.75ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
@@ -76,7 +77,8 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: -0.96ex; /* TODO: Cleanup */
+  margin-left: -1ex; /* TODO: Cleanup */
+  box-shadow: var(--thin) 0px 0 var(--tag-back-color);
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-left: 0.25ex solid transparent;
