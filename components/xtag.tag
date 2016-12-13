@@ -45,7 +45,6 @@ ket {
 }
 
 bra:before {
-  box-sizing: border-box;
   margin-left: var(--exx);
   border-top: var(--flip-height) solid transparent;
   border-right: 0.75ex solid var(--tag-back-color);
@@ -53,7 +52,6 @@ bra:before {
 }
 
 ket:after {
-  box-sizing: border-box;
   border-top: var(--flip-height) solid transparent;
   border-left: 0.75ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
@@ -66,7 +64,7 @@ bra.nonvoid {
 
 ket.nonvoid {
   padding-left: 0.75ex;
-  margin-left: 0.25ex;
+  margin-left: var(--exy);
 }
 
 bra.nonvoid:after {
@@ -125,8 +123,8 @@ tag {
 this.flapHeight = this.flipHeight = '0.65em';
 this.floHeight = '4px';
 this.cofloHeight = '10px';
-this.ex = '1ex';
 this.exx = '-0.75ex';
+this.exy = '-0.25ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
@@ -137,14 +135,14 @@ this.on('mount', function() {
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
     var exx = getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width');
-    console.log(exx);
+    var exy = getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width');
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       floHeight: 'calc(' + Math.floor(height * d / 5) + 'px/'+ d +')',
       cofloHeight: 'calc(' + Math.ceil(height * d * 3 / 5) + 'px/'+ d +')',
-      ex: Math.floor(Math.ceil(height/2)/2) + 'px',
       exx: 'calc(-' + parseFloat(exx) * d + 'px/' + d + ')',
+      exy: 'calc(-' + parseFloat(exy) * d + 'px/' + d + ')',
       clHeight: that.refs.bra.clientHeight,
       isVoidTag: !that._internal.innerHTML
     });
