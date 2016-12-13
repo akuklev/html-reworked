@@ -81,7 +81,7 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: calc(var(--exx) + var(--exy));
+  margin-left: var(--exy);
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-left: 0.25ex solid transparent;
@@ -140,7 +140,8 @@ this.on('mount', function() {
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
     var exx = getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width');
-    var exy = getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width');
+    var exy = getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width') + 
+      getComputedStyle(that.refs.ket).getPropertyValue('padding-left');
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
