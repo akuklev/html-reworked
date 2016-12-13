@@ -6,8 +6,8 @@
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
 ></virtual><hide if={!isVoidTag}>&gt;</hide></bra
-><yield><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}><hide if={!isVoidTag}>&gt;</hide
-  ><hide>/</hide
+><yield><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}
+  ><hide>{!isVoidTag ? '&lt;' : ''}/</hide
   ><tag if={!isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
   ><opts if={!!opts.short && opts.xopts}><virtual if={!!opts.type || (!!classes && !!classes.length)}><wbr/>&nbsp;</virtual>{'{' + opts.xopts + '}'}</opts
