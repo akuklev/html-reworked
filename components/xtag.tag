@@ -34,6 +34,7 @@ bra:before, ket:after, bra.nonvoid:after, ket.nonvoid:before {
   height: 0;
   z-index: -1;
   position: absolute;
+  box-sizing: border-box;
 }
 
 bra {
@@ -135,7 +136,7 @@ this.on('mount', function() {
     var d = window.devicePixelRatio;
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
-    var ex = getComputedStyle(that.refs.bra, 'margin-left');
+    var ex = getComputedStyle(that.refs.bra, ":before").getPropertyValue('width');
     console.log(ex);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
