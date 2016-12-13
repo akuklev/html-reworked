@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --thin: calc(1px / {window.devicePixelRatio}); --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}'
+<xtag style='line-height: calc(0.85em + 2px); --exx: {exx}; --exy: {exy}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight}'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -78,8 +78,7 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: -1ex; /* TODO: Cleanup */
-  /* box-shadow: var(--thin) 0px 0 var(--tag-back-color); */
+  margin-left: -1ex;
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-left: 0.25ex solid transparent;
@@ -137,7 +136,7 @@ this.on('mount', function() {
     var d = window.devicePixelRatio;
     var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     var height = rect.bottom - rect.top + 1/d;
-    var exx = getComputedStyle(that.refs.bra, ":before").getPropertyValue('width');
+    var exx = getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width');
     console.log(exx);
     that.update({
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
