@@ -31,16 +31,10 @@ like a part of the text, regain the symmetry between opening and closing tags.<b
   Directives come right after, <br/>
   as in this optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>. Classes <xtag type='Span' xclass='term'>can</xtag><br/>
   be ascribed as dot-subscipts to tags. <xtag type='Span' xclass='&#123;hide:&nbsp;!show-details)'>Dynamic classes<br/>
-  are supported as well; shorthand <code style='font-size: small;'>.&#123;name);</code> stands for <code style='font-size: small;'>.&#123;name: name)</code>.</xtag></div>
+  are supported as well. Short-cut notation <code style='font-size: small;'>.&#123;name);</code> stands for <code style='font-size: small;'>.&#123;name: name)</code>.</xtag><br/>
+  In order to introduce <xtag type='' xopts='ref: //www.example.org' short={true}>Markdown-like</xtag> notation for links and <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>,
+  we additionally allow to put tag parameters in closing tags alternatively, as well as empty tag names defaulting to “a”s/virtual tags.</div>
 </xtag><br/>
-
-<br/>
-Futhermore we want to have syntax for links, images and alike almost as tidy
-as in markdown. So we'll allow to omit tag name in closing tag (universal closing tag, remember?)
-and/or move style section to the closing tag if the user considers text
-more readable this way, e.g. <br/><xtag type='Image' xopts='src: ./figure.png' short={true}>alt text</xtag>, <br/> 
-and <xtag type='' xopts='ref: //www.example.org' short={true}>Link text</xtag>.<br/> In the latter case we make of the last additional feature:
-anonymous tags, interpreted either as spans or a's (if only styles are present) or virtial tags (if only directives are present).<br/>
 <br/>
 Since reworked CSS we propose can contain new element definitions, it should be
 considered a part of the DTD, so we propose the following type declaration for our HTML flavour:
