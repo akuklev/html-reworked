@@ -25,18 +25,19 @@ Stop hindering line-breaking by treating breaks near to tags as whitespaces, wor
 like a part of the text, regain the symmetry between opening and closing tags.<br/>
 <b style="line-height: 2.2em">There it is:</b>
 <br/>
-<xtag type='Div' xid='example'><div class='cindented'>
-  Text with a <xtag type='Span' xclass='emph'>of text</xtag>,<br/> an <xtag type='Image' xopts='src: ./smiley.png'></xtag>, and an<br/>
-  optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>.</div>
+<xtag type='Block' xid='example'><div class='cindented'>
+  This is a text block with ID “example”.<br/>
+  Styles/options come after tag and ID in<br/>
+  braces: <xtag type='Image' xopts='src: ./smiley.png'></xtag>.<br/>
+  Directives come right after, see this<br/>
+  optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>.
+  
+  Tag types <xtag type='Span' xclass='term'>can</xtag> include
+  subscripts: dot-separated class lists
+  <xtag type='Span' xclass='[hide: !show-details]'>(which can
+  contain dynamic classes, the notation
+  <code style='font-size: small;'>.{name}</code> works as <code style='font-size: small;'>.{name: name}</code>)</xtag>. </div>
 </xtag><br/>
-<br/>
-Remarks on notation:<br/>
-– class(es): as subscript(s) of the tag separated by dot(s),<br/>
-&nbsp; either names for permanent classes or <code style='font-size: small;'>.{name: condition}</code><br/>
-&nbsp; for pseudoclasses, <code style='font-size: small;'>.{name}</code> as shorthand for <code style='font-size: small;'>.{name: name}</code>;<br/>
-– id: right after tag type and class(es);<br/>
-– styles: after tag type, class(es) and id, in braces;<br/>
-– directives like <code>@if</code> and <code>@each</code>: in the end;<br/>
 
 <br/>
 Futhermore we want to have syntax for links, images and alike almost as tidy
