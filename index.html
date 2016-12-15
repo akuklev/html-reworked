@@ -37,11 +37,10 @@ Introduce special syntax for special attribute types (IDs and classes), <a href=
 Stop hindering line-breaking by treating breaks near to tags as whitespaces, work out pretty-printing representing tags more like compound brackets, less
 like a part of the text, regain the symmetry between opening and closing tags.<br/>
 <br/>
-Since our refined stylesheets can define new tags, they should be considered
-a part of the DTD, so we propose the following type declaration for refined HTML:
-<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code>
-or
-<code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
+Since our refined stylesheets can define new tags, they should be considered a
+part of the DTD, so we propose the following type declaration format:
+<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
+<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
   @import <a href='css-reworked'>./common.css</a> screen, projection;
   @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
   ... // embedded stylesheet
