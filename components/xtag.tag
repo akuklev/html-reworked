@@ -74,6 +74,7 @@ ket.nonvoid {
 
 bra.nonvoid:after {
   margin-left: var(--exg);
+  box-sizing: border-box;
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-right: 0.25ex solid transparent;
@@ -82,6 +83,7 @@ bra.nonvoid:after {
 
 ket.nonvoid:before {
   margin-left: var(--exy);
+  box-sizing: border-box;
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-left: 0.25ex solid transparent;
@@ -142,8 +144,8 @@ this.on('mount', function() {
     //var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     //var height = rect.bottom - rect.top + 1/d;
     var height = Math.round(parseFloat(getComputedStyle(!opts.short ? that.refs.bra : that.refs.ket).getPropertyValue('height')) * 64) / 64
-//    if (isChrome) height += 1/d;
-    var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
+    var exx = (parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width')) +
+            parseFloat(getComputedStyle(that.refs.ket, ":after").getPropertyValue('border-left-width')))/2;
     var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('margin-left'));
     var exy = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left')) + parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width'));
     var exg = parseFloat(getComputedStyle(that.refs.bra).getPropertyValue('padding-right'));
@@ -152,8 +154,8 @@ this.on('mount', function() {
       flapHeight: 'calc(' + Math.ceil(height * d / 2) + 'px/'+ d +')',
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       floHeight: 'calc(' + Math.round(height * d / 5) + 'px/'+ d +')',
-      cofloHeight: 'calc(' + (height * d - 2 * Math.round(height * d / 5)) + 'px/'+ d +')',
-      exx: 'calc(-' + Math.max(exx, exg) * d + 'px/' + d + ')',
+      cofloHeight: 'calc(' + (height * d) + 'px/'+ d +')',
+      exx: 'calc(-' + exx * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
       exz: 'calc(' + exz * d + 'px/' + d + ')',
       exg: 'calc(' + exg * d + 'px/' + d + ')',
