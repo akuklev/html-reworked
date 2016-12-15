@@ -97,7 +97,7 @@ bra.nonvoid.short, ket.void {
 }
 
 bra.nonvoid.short {
-  margin-left: var(--exg);
+  margin-left: 0.7ex;
   margin-right: var(--exz);
 }
 
@@ -110,12 +110,12 @@ id, cls, opts, dirs, hide {
 }
 
 cls {
-  display:inline-block;
+  display: inline-block;
   font-size: small;
 }
 
 opts, dirs {
-  display:inline-block;
+  display: inline-block;
   font-size: smaller;
 }
 
