@@ -37,20 +37,14 @@ Introduce special syntax for special attribute types (IDs and classes), <a href=
 Stop hindering line-breaking by treating breaks near to tags as whitespaces, work out pretty-printing representing tags more like compound brackets, less
 like a part of the text, regain the symmetry between opening and closing tags.<br/>
 <br/>
-Since reworked CSS we propose can contain new element definitions, it should be
-considered a part of the DTD, so we propose the following type declaration for our HTML flavour:
+Since our brave new stylesheets can define new elements, they should be
+considered a part of the DTD, so we propose the following type declaration for our brave new HTML:
 <pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
-or, for embedded css:
-<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
-  ... // stylesheet
-]&gt;</code></pre>
-
-At the same time, style tags and stylesheet links must be abolished.
-For stylesheets spanning over multiple files, <code>@import</code>
-rules can be used:
+or
 <pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
   @import <a href='css-reworked'>./common.css</a> screen, projection;
   @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
+  ... // embedded stylesheet
 ]&gt;</code></pre>
 
 <h2>Dream of a Rich Text Language</h2>
