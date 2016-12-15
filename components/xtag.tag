@@ -48,7 +48,7 @@ ket {
 bra:before {
   margin-left: var(--exx);
   border-top: var(--flip-height) solid transparent;
-  border-right: 0.75ex solid var(--tag-back-color);
+  border-right: 0.749ex solid var(--tag-back-color);
   border-bottom: var(--flap-height) solid transparent;
 }
 
@@ -144,8 +144,7 @@ this.on('mount', function() {
     //var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     //var height = rect.bottom - rect.top + 1/d;
     var height = Math.round(parseFloat(getComputedStyle(!opts.short ? that.refs.bra : that.refs.ket).getPropertyValue('height')) * 64) / 64
-    var exx = (parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width')) +
-            parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('margin-right')))/2;
+    var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('margin-left'));
     var exy = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left')) + parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width'));
     var exg = parseFloat(getComputedStyle(that.refs.bra).getPropertyValue('padding-right'));
