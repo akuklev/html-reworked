@@ -49,13 +49,13 @@ bra:before {
   margin-left: -6px;
   border-top: 8px solid transparent;
   border-right: 6px solid var(--tag-back-color);
-  border-bottom: 8px solid transparent;
+  border-bottom: 9px solid transparent;
 }
 
 ket:after {
   border-top: 8px solid transparent;
   border-left: 6px solid var(--tag-back-color);
-  border-bottom: 8px solid transparent;
+  border-bottom: 9px solid transparent;
 }
 
 ket.nonvoid:after {
@@ -74,18 +74,18 @@ ket.nonvoid {
 
 bra.nonvoid:after {
   margin-left: 6px;
-  height: var(--coflo-height);
-  border-top: var(--flo-height) solid var(--tag-back-color);
+  height: 9px;
+  border-top: 4px solid var(--tag-back-color);
   border-right: 2px solid transparent;
-  border-bottom: var(--flo-height) solid var(--tag-back-color);
+  border-bottom: 4px solid var(--tag-back-color);
 }
 
 ket.nonvoid:before {
   margin-left: -8px;
-  height: var(--coflo-height);
-  border-top: var(--flo-height) solid var(--tag-back-color);
+  height: 9px;
+  border-top: 4px solid var(--tag-back-color);
   border-left: 2px solid transparent;
-  border-bottom: var(--flo-height) solid var(--tag-back-color);
+  border-bottom: 4px solid var(--tag-back-color);
 }
 
 bra.nonvoid.short:after {
