@@ -153,7 +153,7 @@ this.on('mount', function() {
       flipHeight: 'calc(' + Math.floor(height * d / 2) + 'px/'+ d +')',
       floHeight: 'calc(' + Math.round(height * d / 5) + 'px/'+ d +')',
       cofloHeight: 'calc(' + (height * d - 2 * Math.round(height * d / 5)) + 'px/'+ d +')',
-      exx: 'calc(-' + exg * d + 'px/' + d + ')',
+      exx: 'calc(-' + Math.max(exx, exg) * d + 'px/' + d + ')',
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
       exz: 'calc(' + exz * d + 'px/' + d + ')',
       exg: 'calc(' + exg * d + 'px/' + d + ')',
