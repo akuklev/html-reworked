@@ -15,7 +15,7 @@ Markdown &amp; other lightweight markup languages do master it, but they fail at
 overuse cryptic ![](markup), where words do just as good.<br/>
 <span class='slogan'>Can we fix HTML?</span>
 
-<h1>Better HTML</h1>
+<b style="line-height: 2.2em">Here's the recipee:</b>
 Take HTML5, leave out bizarre syntax for CDATA, entities and comments, add
 back notation for empty tags (as in <code>&lt;br/&gt;</code>) from XML, and close-any tags (<code>&lt;/&gt;</code>)
 from SGML, settle on syntax for [expression] interpolation and processing-directives (<code>@if</code>, <code>@each</code>, <code>@prettyprint</code>, etc.).
@@ -23,7 +23,7 @@ Introduce special syntax for special attribute types (IDs and classes), <a href=
 <br/>
 Stop hindering line-breaking by treating breaks near to tags as whitespaces, work out pretty-printing representing tags more like compound brackets, less
 like a part of the text, regain the symmetry between opening and closing tags.<br/>
-<b style="line-height: 2.2em">There it is:</b>
+<b style="line-height: 2.2em">There's the result:</b>
 <br/>
 <xtag type='Div' xid='sample'><div class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and<br/>
@@ -34,8 +34,10 @@ like a part of the text, regain the symmetry between opening and closing tags.<b
   are supported as well. Short-cut notation <code style='font-size: small;'>.&#123;name);</code> stands for <code style='font-size: small;'>.&#123;name: name)</code>.</xtag><br/>
   To support <xtag type='' xopts='ref: //en.wikipedia.org/wiki/Markdown' short={true}>Markdown</xtag>-like notation for<br/>
   links and <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>,
-  attributes should be allowed to<br/> be placed alternatively in closing tags and tag type should default to span/<br/>hyperlink if left empty.</div>
-</xtag><br/>
+  attributes should be allowed to<br/> be placed alternatively in closing tags and tag type should default to spans/<br/>hyperlinks if left empty.</div>
+</xtag>
+  
+<h2>Headers</h2>
 <br/>
 Since reworked CSS we propose can contain new element definitions, it should be
 considered a part of the DTD, so we propose the following type declaration for our HTML flavour:
