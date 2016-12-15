@@ -16,7 +16,7 @@
 
 body {
   font-family: 'PT Serif', serif;
-  font-size: 17px;
+  font-size: 16px;
   border: 0;
   margin: 0;
   padding: 3em;
@@ -42,7 +42,7 @@ span.slogan {
 
 div.cindented {
   padding-left: 1ex;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 xtag {
