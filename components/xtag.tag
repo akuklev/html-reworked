@@ -81,7 +81,7 @@ bra.nonvoid:after {
 }
 
 ket.nonvoid:before {
-  margin-left: -2px'
+  margin-left: -2px;
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
   border-left: 2px solid transparent;
