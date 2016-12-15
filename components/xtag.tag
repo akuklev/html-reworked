@@ -86,7 +86,7 @@ ket.nonvoid:before {
   box-sizing: border-box;
   height: var(--coflo-height);
   border-top: var(--flo-height) solid var(--tag-back-color);
-  border-left: 0.25ex solid transparent;
+  border-left: 0.24ex solid transparent;
   border-bottom: var(--flo-height) solid var(--tag-back-color);
 }
 
