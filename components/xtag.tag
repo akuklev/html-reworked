@@ -142,7 +142,7 @@ this.on('mount', function() {
     //var rect = (!opts.short ? that.refs.bra : that.refs.ket).getBoundingClientRect();
     //var height = rect.bottom - rect.top + 1/d;
     var height = Math.round(parseFloat(getComputedStyle(!opts.short ? that.refs.bra : that.refs.ket).getPropertyValue('height')) * 64) / 64
-    if (isChrome) height += 1/d;
+//    if (isChrome) height += 1/d;
     var exx = parseFloat(getComputedStyle(that.refs.bra, ":before").getPropertyValue('border-right-width'));
     var exz = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('margin-left'));
     var exy = parseFloat(getComputedStyle(that.refs.ket).getPropertyValue('padding-left')) + parseFloat(getComputedStyle(that.refs.ket, ":before").getPropertyValue('border-left-width'));
