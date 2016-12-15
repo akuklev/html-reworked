@@ -15,7 +15,7 @@ Markdown &amp; other lightweight markup languages do master it, but they fail at
 overuse cryptic ![](markup), where words do just as good.<br/>
 <span class='slogan'>Can we fix HTML?</span><br/>
 <br/>
-<h2>HTML Reworked</h2>
+<h2>Refined HTML</h2>
 <xtag type='Div' xid='sample'><div class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and<br/>
   ID enclosed in braces: <xtag type='Image' xopts='src: ./smiley.png'></xtag>.
@@ -37,11 +37,11 @@ Introduce special syntax for special attribute types (IDs and classes), <a href=
 Stop hindering line-breaking by treating breaks near to tags as whitespaces, work out pretty-printing representing tags more like compound brackets, less
 like a part of the text, regain the symmetry between opening and closing tags.<br/>
 <br/>
-Since our brave new stylesheets can define new elements, they should be
-considered a part of the DTD, so we propose the following type declaration for our brave new HTML:
-<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
+Since our refined stylesheets can define new tags, they should be considered
+a part of the DTD, so we propose the following type declaration for refined HTML:
+<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code>
 or
-<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
+<code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
   @import <a href='css-reworked'>./common.css</a> screen, projection;
   @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
   ... // embedded stylesheet
