@@ -163,3 +163,5 @@ this.on('mount', function() {
   adjustSize();
   window.addEventListener('resize', adjustSize);
 });
+
+</xtag>
