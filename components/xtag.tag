@@ -1,4 +1,4 @@
-<xtag style='line-height: 16px; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
+<xtag style='line-height: calc(0.85em + 2px); --exg: {exg}; --exx: {exx}; --exy: {exy}; --exz: {exz}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
 ><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -37,55 +37,55 @@ bra:before, ket:after, bra.nonvoid:after, ket.nonvoid:before {
 }
 
 bra {
-  margin-left: 8px;
+  margin-left: 1ex;
 }
 
 ket {
-  padding-right: 2px;
-  margin-right: 6px;
+  padding-right: var(--exz);
+  margin-right: 0.75ex;
 }
 
 bra:before {
-  margin-left: -6px;
-  border-top: 8px solid transparent;
-  border-right: 6px solid var(--tag-back-color);
-  border-bottom: 9px solid transparent;
+  margin-left: var(--exx);
+  border-top: var(--flip-height) solid transparent;
+  border-right: 0.75ex solid var(--tag-back-color);
+  border-bottom: var(--flap-height) solid transparent;
 }
 
 ket:after {
-  border-top: 8px solid transparent;
-  border-left: 6px solid var(--tag-back-color);
-  border-bottom: 9px solid transparent;
+  border-top: var(--flip-height) solid transparent;
+  border-left: 0.75ex solid var(--tag-back-color);
+  border-bottom: var(--flap-height) solid transparent;
 }
 
 ket.nonvoid:after {
-  margin-left: 2px;
+  margin-left: var(--exz);
 }
 
 bra.nonvoid {
-  padding-right: 6px;
-  margin-right: 2px;
+  padding-right: 0.75ex;
+  margin-right: 0.25ex;
 }
 
 ket.nonvoid {
-  padding-left: 6px;
-  margin-left: 2px;
+  padding-left: 0.75ex;
+  margin-left: 0.25ex;
 }
 
 bra.nonvoid:after {
-  margin-left: 6px;
-  height: 9px;
-  border-top: 4px solid var(--tag-back-color);
-  border-right: 2px solid transparent;
-  border-bottom: 4px solid var(--tag-back-color);
+  margin-left: var(--exg);
+  height: var(--coflo-height);
+  border-top: var(--flo-height) solid var(--tag-back-color);
+  border-right: 0.25ex solid transparent;
+  border-bottom: var(--flo-height) solid var(--tag-back-color);
 }
 
 ket.nonvoid:before {
-  margin-left: -8px;
-  height: 9px;
-  border-top: 4px solid var(--tag-back-color);
-  border-left: 2px solid transparent;
-  border-bottom: 4px solid var(--tag-back-color);
+  margin-left: var(--exy);
+  height: var(--coflo-height);
+  border-top: var(--flo-height) solid var(--tag-back-color);
+  border-left: 0.25ex solid transparent;
+  border-bottom: var(--flo-height) solid var(--tag-back-color);
 }
 
 bra.nonvoid.short:after {
@@ -98,8 +98,8 @@ bra.nonvoid.short, ket.void {
 }
 
 bra.nonvoid.short {
-  margin-left: 6px;
-  margin-right: 2px;
+  margin-left: var(--exg);
+  margin-right: var(--exz);
 }
 
 id, cls, opts, dirs {
@@ -128,10 +128,10 @@ tag {
 this.flapHeight = this.flipHeight = '0.65em';
 this.floHeight = '4px';
 this.cofloHeight = '10px';
-this.exx = '-6px';
-this.exy = '-2px';
-this.exz = '2px';
-this.exg = '6px';
+this.exx = '-0.75ex';
+this.exy = '-0.25ex';
+this.exz = '0.25ex';
+this.exg = '0.75ex';
 this.isVoidTag = false;
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
@@ -164,5 +164,3 @@ this.on('mount', function() {
   adjustSize();
   window.addEventListener('resize', adjustSize);
 });
-
-</xtag>
