@@ -13,7 +13,7 @@ must be readable as plain text, the only aid allowed being pretty-printing.
 HTML was designed to be like that, but it fails miserably since 20 years.
 Markdown &amp; other lightweight markup languages do master it, but they fail at extenstensibility and
 overuse cryptic ![](markup), where words do just as good.<br/>
-<span class='slogan'>Can we fix HTML?</span><br/>
+<span class='slogan'>Can we fix HTML?</span>
 <br/>
 <h2>Refined HTML</h2>
 <xtag type='Div' xid='sample'><div class='cindented'>
@@ -46,27 +46,31 @@ part of the DTD, so we propose the following type declaration format:
   ... // embedded stylesheet
 ]&gt;</code></pre>
 
-<h2>Dream of a Rich Text Language</h2>
-The language I'd like to use to write everything I write (from
-blog entries to scientific articles and embedded documentation
-in software sources) using a mix of multimarkdown and this
-variety of HTML. I really like how multimarkdown handles
-linebreaks, lists, quotations, citations, code insertions and
-alike, I really like being able to write _underscores_ for emphasized
-text, but I also like to be able to freely intermix all of this with
-proper HTML which is more readable and readily understandable by
-unexpirienced persons in all other cases (including links, images,
-footnotes, etc.). Thankfully, Multimarkdown has nothing which would hamper
-intermixing with the variety of HTML we just described.<br/>
-<br/>
-Given a comprehensible library of components (such as date picker, spinner,
+  
+<h2>Refined Markdown</h2>
+Markdown was developed to augment HTML, not to replace it, so it supports inline HTML and embedded HTML blocks.
+Markdown <xtag type='' xid="ref1" short={true}>documentation</xtag> endorces to use HTML whenever it serves better than Markdown-syntax. Thus Markdown based
+Refined HTML, doesn't need any special syntax for hyperlinks and images. That's what Refined Markdown is:
+based on Refined HTML with superfluous syntax removed. Since I love how Markdown handles emphasis, line breaks,
+headings, lists, quotations and code, I'd like to use to Refined Markdown for everything I write from blog
+entries to scientific articles and embedded software documentation.<br/><br/>
+  
+<code>@rule #ref1 {ref: http://daringfireball.net/projects/markdown/syntax)</code>
+
+<h2>Beyond Web</h2>
+Equipped with a comprehensible library of components (such as date picker, spinner,
 etc.) and the complete set of layout tags (<code>&lt;tabstop/&gt;</code>,
 <code>&lt;run-in/&gt;</code>, <code>&lt;inline/&gt;</code>,
 <code>&lt;block/&gt;</code>, <code>&lt;inline-block/&gt;</code>,
 <code>&lt;flex/&gt;</code>, <code>&lt;inline-flex/&gt;</code>,
 <code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code> and table stuff),
-both enabled by <a href="css-reworked">CSS(reworked)</a>, it also
-makes a perfect language for designing interactive visual UIs.<br/>
+both enabled by <a href="css-reworked">Refined CSS</a>, Refined HTML
+also makes a perfect language for designing interactive visual UIs.<br/>
+
+Alternatively, it can be used as a source format for printed media (we mostly
+envisage scientific articles): a large subset of Refined HTML can be typeset
+by TeX and the other way round, all TeX macros can be converted to tags with
+little or no hints.
 <br/>
 Refs: <a href='http://akuklev.livejournal.com/1173309.html'>//akuklev.livejournal.com/1173309</a>
 
