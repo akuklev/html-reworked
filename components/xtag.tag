@@ -93,7 +93,6 @@ bra.nonvoid.short:after {
 }
 
 bra.nonvoid.short, ket.void {
-  height: 18px;
   padding: 0;
 }
 
