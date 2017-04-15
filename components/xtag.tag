@@ -43,7 +43,7 @@ bra.closed {
 }
 
 ket {  
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5,5 L4.05,0 L6.1,0 L10,5 L6.1,10 L4.05,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5,5 L0.05,0 L6.1,0 L10,5 L6.1,10 L0.05,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 id, cls, opts, dirs {
