@@ -70,7 +70,7 @@ this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
 this.on('mount', function() {
   this.update({
-    closed: !that._internal.innerHTML
+    closed: !this._internal.innerHTML
   });
 });
 
