@@ -17,6 +17,7 @@
 ><style scoped>
 hide {
   font-size: 0;
+  line-height: 0;
 }
 
 bra, ket {
@@ -25,34 +26,14 @@ bra, ket {
   text-shadow: -1px 0 1px var(--tag-back-color), 0 1px 1px var(--tag-back-color), 1px 0 1px var(--tag-back-color), 0 -1px 1px var(--tag-back-color);
 }
 
-bra:before, ket:after, bra.nonvoid:after, ket.nonvoid:before {
-  content: "";
-  font-family: "Anka/Coder Condensed";
-  font-weight: bold;
-  width: 0;
-  height: 0;
-  z-index: -1;
-  position: absolute;
-}
-
 bra {
   border-left: 1ex solid white;
   border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L4,0 L6,0 L10,5 L6,10 L4,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 ket {
-  padding-right: var(--exz);
-  margin-right: 0.75ex;
-}
-
-ket:after {
-  border-top: var(--flip-height) solid transparent;
-  border-left: 0.75ex solid var(--tag-back-color);
-  border-bottom: var(--flap-height) solid transparent;
-}
-
-ket.nonvoid:after {
-  margin-left: var(--exz);
+  border-right: 1ex solid white;
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L4,0 L6,0 L10,5 L6,10 L4,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 bra.nonvoid {
@@ -60,37 +41,11 @@ bra.nonvoid {
 }
 
 ket.nonvoid {
-  padding-left: 0.75ex;
-  margin-left: 0.25ex;
-}
-
-ket.nonvoid:before {
-  margin-left: var(--exy);
-  box-sizing: border-box;
-  height: var(--coflo-height);
-  border-top: var(--flo-height) solid var(--tag-back-color);
-  border-left: 0.24ex solid transparent;
-  border-bottom: var(--flo-height) solid var(--tag-back-color);
-}
-
-bra.nonvoid.short:after {
-  margin-left: 0;
-}
-
-bra.nonvoid.short, ket.void {
-  padding: 0;
-}
-
-bra.nonvoid.short {
-  margin-left: 0.7ex;
-  margin-right: var(--exz);
+  border-left: 1ex solid white; 
 }
 
 id, cls, opts, dirs {
   font-family: "Anka/Coder Narrow";
-}
-
-id, cls, opts, dirs, hide {
   line-height: 0;
 }
 
