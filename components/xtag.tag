@@ -37,19 +37,13 @@ bra:before, ket:after, bra.nonvoid:after, ket.nonvoid:before {
 }
 
 bra {
-  margin-left: 1ex;
+	border-left: 1ex solid white;
+	border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L4,0 L6,0 L10,5 L6,10 L4,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 ket {
   padding-right: var(--exz);
   margin-right: 0.75ex;
-}
-
-bra:before {
-  margin-left: var(--exx);
-  border-top: var(--flip-height) solid transparent;
-  border-right: 0.74ex solid var(--tag-back-color);
-  border-bottom: var(--flap-height) solid transparent;
 }
 
 ket:after {
@@ -63,8 +57,7 @@ ket.nonvoid:after {
 }
 
 bra.nonvoid {
-  padding-right: 0.75ex;
-  margin-right: 0.25ex;
+  border-right: 1ex solid white;
 }
 
 ket.nonvoid {
