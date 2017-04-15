@@ -1,21 +1,22 @@
 <xtag style='line-height: calc(0.85em + 2px); --exg: {exg}; --exx: {exx}; --exy: {exy}; --exz: {exz}; --flip-height: {flipHeight}; --flap-height: {flapHeight}; --flo-height: {floHeight}; --coflo-height: {cofloHeight};'
-><bra ref='bra' class={nonvoid: !isVoidTag, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
+><bra ref='bra' class={closed: closed, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
   ><id   if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
-></virtual><hide if={!isVoidTag}>&gt;</hide></bra
-><yield><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}
-  ><hide>{!isVoidTag ? '&lt;' : ''}/</hide
-  ><tag if={!isVoidTag}>{opts.type}</tag
-  ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
-  ><id  if={!!opts.short && opts.xid}><virtual if={!!opts.type || (!!classes && !!classes.length)}><wbr/>&nbsp;</virtual>{opts.xid}</id
-  ><opts if={!!opts.short && opts.xopts}><virtual if={!!opts.type || (!!classes && !!classes.length) || !!opts.xid}><wbr/>&nbsp;</virtual>{'{' + opts.xopts + '}'}</opts
-  ><dirs if={!!opts.short && opts.xdirs}><virtual if={!!opts.type || (!!classes && !!classes.length) || !!opts.xid || !!opts.xopts}><wbr/>&nbsp;</virtual>{opts.xdirs}</dirs
-><hide>&gt;</hide></ket
+></virtual><hide>{closed ? '/>' : '>'}</hide></bra
+><yield><ket ref='ket' if={!closed} class={short: !!opts.short}
+  ><hide>&lt;/</hide
+  ><tag>{opts.type}</tag
+  ><virtual if={!!opts.short}
+  ><cls each={class in classes}><wbr/>.{class}</cls
+  ><id  if={opts.xid}><virtual if={!!opts.type || (!!classes && !!classes.length)}><wbr/>&nbsp;</virtual>{opts.xid}</id
+  ><opts if={opts.xopts}><virtual if={!!opts.type || (!!classes && !!classes.length) || !!opts.xid}><wbr/>&nbsp;</virtual>{'{' + opts.xopts + '}'}</opts
+  ><dirs if={opts.xdirs}><virtual if={!!opts.type || (!!classes && !!classes.length) || !!opts.xid || !!opts.xopts}><wbr/>&nbsp;</virtual>{opts.xdirs}</dirs
+></virtual><hide>&gt;</hide></ket
 ><style scoped>
-hide, .hidden {
+hide {
   font-size: 0;
   line-height: 0;
 }
@@ -24,29 +25,25 @@ bra, ket {
   display: inline-block;
   color: var(--tag-text-color);
   text-shadow: -1px 0 1px var(--tag-back-color), 0 1px 1px var(--tag-back-color), 1px 0 1px var(--tag-back-color), 0 -1px 1px var(--tag-back-color);
+  border-left: 1ex solid;
+  border-right: 1ex solid;
 }
 
 bra {
-  border-left: 1ex solid white;
   border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.9,0 L8.95,0 L7.5,5 L8.95,10 L3.9,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
-bra.short.nonvoid {
+bra.short {
   border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.9,0 L3.95,0 L2.5,5 L3.95,10 L3.9,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 0 0 4 fill stretch;
   border-right: none;
 }
 
-ket {
-  border-right: 1ex solid white;
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L4,0 L6,0 L10,5 L6,10 L4,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+bra.closed {
+	border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.9,0 L6.1,0 L10,5 L6.1,10 L3.9,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
-bra.nonvoid {
-  border-right: 1ex solid white;
-}
-
-ket.nonvoid {
-  border-left: 1ex solid white; 
+ket {  
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5,5 L4.05,0 L6.1,0 L10,5 L6.1,10 L4.05,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 id, cls, opts, dirs {
@@ -101,7 +98,7 @@ this.on('mount', function() {
       exy: 'calc(-' + exy * d + 'px/' + d + ')',
       exz: 'calc(' + exz * d + 'px/' + d + ')',
       exg: 'calc(' + exg * d + 'px/' + d + ')',
-      isVoidTag: !that._internal.innerHTML
+      closed: !that._internal.innerHTML
     });
   };
   adjustSize();
