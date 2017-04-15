@@ -8,14 +8,14 @@
 ></virtual><hide if={!isVoidTag}>&gt;</hide></bra
 ><yield><ket ref='ket' class={nonvoid: !isVoidTag, void: isVoidTag, short: !!opts.short}
   ><hide>{!isVoidTag ? '&lt;' : ''}/</hide
-  ><tag if={!isVoidTag}>{opts.type}</tag
+  ><tag class={hidden: isVoidTag}>{opts.type}</tag
   ><cls if={!!opts.short} each={class in classes}><wbr/>.{class}</cls
   ><id  if={!!opts.short && opts.xid}><virtual if={!!opts.type || (!!classes && !!classes.length)}><wbr/>&nbsp;</virtual>{opts.xid}</id
   ><opts if={!!opts.short && opts.xopts}><virtual if={!!opts.type || (!!classes && !!classes.length) || !!opts.xid}><wbr/>&nbsp;</virtual>{'{' + opts.xopts + '}'}</opts
   ><dirs if={!!opts.short && opts.xdirs}><virtual if={!!opts.type || (!!classes && !!classes.length) || !!opts.xid || !!opts.xopts}><wbr/>&nbsp;</virtual>{opts.xdirs}</dirs
 ><hide>&gt;</hide></ket
 ><style scoped>
-hide {
+hide, .hidden {
   font-size: 0;
   line-height: 0;
 }
