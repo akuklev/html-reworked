@@ -34,7 +34,7 @@ bra {
 }
 
 bra.short {
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.9,0 L3.95,0 L2.5,5 L3.95,10 L3.9,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 0 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.5,0 L3.6,0 L2.5,5 L3.6,10 L3.5,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 0 0 4 fill stretch;
   border-right: none;
 }
 
