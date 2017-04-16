@@ -69,6 +69,7 @@ tag {
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
 
 this.on('mount', function() {
+  console.log(this);
   this.update({
     closed: !this._internal.innerHTML
   });
