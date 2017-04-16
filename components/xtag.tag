@@ -25,7 +25,7 @@ bra, ket {
 }
 
 bra {
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L9.5,0 L8,3.5 L8,6.5 L9.5,10 L3.45,10Z' fill='%23505050'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L95,0 L80,35 L80,65 L95,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
 }
 
 bra.short {
