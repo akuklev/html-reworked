@@ -1,6 +1,6 @@
 <xtag style='line-height: calc(0.83em + 1px);'
-><bra class={closed: closed, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
-  ><tag>{opts.type}</tag
+><bra class={closed: closed, short: !!opts.short}><hide>&lt;</hide
+  ><tag>{!opts.short ? opts.type : ''}</tag><virtual if={!opts.short}
   ><cls  each={class in classes}><wbr/>.{class}</cls
   ><id   if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
@@ -43,6 +43,10 @@ ket {
   border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,35 L5,0 L65.5,0 L100,50 L65.5,100 L5,100 L20,65Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
 }
 
+bra.short tag:before {
+  content: '\200B';
+}
+
 tag {
   font-family: "Anka/Coder Condensed";
 }
@@ -57,11 +61,6 @@ opts, dirs {
 
 hide {
   font-size: 0;
-}
-
-hide:before {
-  content: '\u200B';
-  font-family: "Anka/Coder Condensed";
 }
 
 id, cls, opts, dirs, hide {
