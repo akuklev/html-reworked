@@ -20,14 +20,14 @@ Introduce special syntax for special attribute types (IDs and classes) and <a hr
 Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating line-breaks near tags as whitespaces.">*</abbr>
 making tags look more like compound brackets and restoring the symmetry between opening and closing ones.<br/><br/>
 <xtag type='Div' xid='sample'><div class='cindented'>
-  This is a text block with ID=“sample”. Styles/options come after the tag and<wbr/>
+  This is a text block with ID=“sample”. Styles/options come after the tag and
   ID enclosed in braces: <xtag type='Image' xopts='src: ./smiley.png'></xtag>.
-  Directives come right after,<wbr/>
-  as in this optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>. Classes <xtag type='Span' xclass='term'>can</xtag><wbr/>
-  be ascribed as dot-subscipts to tags. <xtag type='Span' xclass='\{hide:&nbsp;!show-details\}'>Dynamic classes<wbr/>
+  Directives come right after,
+  as in this optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>. Classes <xtag type='Span' xclass='term'>can</xtag>
+  be ascribed as dot-subscipts to tags. <xtag type='Span' xclass='\{hide:&nbsp;!show-details\}'>Dynamic classes
   are supported as well. Short-cut notation <code style='font-size: small;'>.\{name\};</code> stands for <code style='font-size: small;'>.\{name: name\}</code>.</xtag>
   To support <xtag type='' xid="ref2" short={true}>Markdown</xtag>-like syntax for <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>
-  and links, attributes should be allowed to<wbr/> be placed alternatively in closing tags and tag type should default to spans/<wbr/>hyperlinks if left empty. 
+  and links, attributes should be allowed to be placed alternatively in closing tags and tag type should default to spans/hyperlinks if left empty. 
   </div>
 </xtag><br/><br/>
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref2</code> <code style='font-size: smaller;'>{ref: //en.wikipedia.org/wiki/Markdown}</code>  
