@@ -33,7 +33,7 @@ to start with <code>@rule</code>, just like this:
 It would be also nice to fix once and for all syntax for interpolation
 of expressions (in scripting language, JavaScript by default), preferably
 square brakets. Assuming the scripting language is CSS-units-aware, we
-can dispense with <code>calc(·)</code> and <code>attr(·)</code> in
+can dispense with <code>calc(·)</code>, <code>var(·)</code> and <code>attr(·)</code> in
 favour of stuff like <code>[1em + 5px + additional-width]</code>.<br/>
 <br/>
 You probably know about how <code>&lt;li&gt;'s</code> are styled in classical CSS2+:
@@ -61,7 +61,7 @@ property in favour of such templates involving layout tags
 <code>&lt;block/&gt;</code>, <code>&lt;inline-block/&gt;</code>,
 <code>&lt;flex/&gt;</code>, <code>&lt;inline-flex/&gt;</code>,
 <code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code>,
-and all the table stuff):
+and all the grid stuff):
 <pre>
 <b>@rule</b> div.remark {
   <code>&lt;run-in&gt;[content]&lt;/run-in&gt;</code>
@@ -146,6 +146,8 @@ for <a href='./'>HTML(reworked)</a> documents utilizing reworked stylesheets:
 <pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
 or, for embedded css:
 <pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
-... // stylesheet
+  @import <a href='css-reworked'>./common.css</a> screen, projection;
+  @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
+  ... // embedded stylesheet
 ]&gt;</code></pre>
 </html>
