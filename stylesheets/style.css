@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Anka/Coder Condensed';
-  src: url('../fonts/AnkaCoderCondensedBold.ttf') format('truetype');
+  src: url('/html-reworked/fonts/AnkaCoderCondensedBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Anka/Coder Narrow';
-  src: url('../fonts/AnkaCoderNarrowRegular.ttf') format('truetype');
+  src: url('/html-reworked/fonts/AnkaCoderNarrowRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-@import 'https://fonts.googleapis.com/css?family=PT+Serif';
+@import url('https://fonts.googleapis.com/css?family=PT+Serif');
 
 body {
   font-family: 'PT Serif', serif;
