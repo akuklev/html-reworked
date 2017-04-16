@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Serif');
+
 @font-face {
   font-family: 'Anka/Coder Condensed';
   src: url('/html-reworked/fonts/AnkaCoderCondensedBold.ttf') format('truetype');
@@ -11,8 +13,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-@import url('https://fonts.googleapis.com/css?family=PT+Serif');
 
 body {
   font-family: 'PT Serif', serif;
