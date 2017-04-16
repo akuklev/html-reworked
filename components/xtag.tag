@@ -29,16 +29,16 @@ bra {
 }
 
 bra.short {
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L3.5,0 L2,4 L2,6 L3.5,10 L3.45,10Z' fill='%23505050'/%3E%3C/svg%3E") 0 0 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L35,0 L20,40 L20,60 L35,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 0 0 40 fill stretch;
   border-right: none;
 }
 
 bra.closed {
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L6.55,0 L10,5 L6.55,10 L3.45,10Z' fill='%23505050'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L65.5,0 L100,50 L65.5,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
 }
 
 ket {  
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2,3.5 L0.5,0 L6.55,0 L10,5 L6.55,10 L0.5,10 L2,6.5Z' fill='%23505050'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,35 L5,0 L65.5,0 L100,50 L65.5,100 L5,100 L20,65Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
 }
 
 tag {
