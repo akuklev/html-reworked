@@ -26,14 +26,11 @@ making tags look more like compound brackets and restoring the symmetry between 
   as in this optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>. Classes <xtag type='Span' xclass='term'>can</xtag><wbr/>
   be ascribed as dot-subscipts to tags. <xtag type='Span' xclass='\{hide:&nbsp;!show-details\}'>Dynamic classes<wbr/>
   are supported as well. Short-cut notation <code style='font-size: small;'>.\{name\};</code> stands for <code style='font-size: small;'>.\{name: name\}</code>.</xtag><wbr/>
-  To support <xtag type='' xid="ref1" short={true}>Markdown</xtag>-like notation for<wbr/>
-  links and <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>,
-  attributes should be allowed to<wbr/> be placed alternatively in closing tags and tag type should default to spans/<wbr/>hyperlinks if left empty.<br/><br/>
-  <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref1</code> <code style='font-size: smaller;'>\{ref: //en.wikipedia.org/wiki/Markdown\}</code> 
+  To support <xtag type='' xid="ref1" short={true}>Markdown</xtag>-like syntax for <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>
+  and links, attributes should be allowed to<wbr/> be placed alternatively in closing tags and tag type should default to spans/<wbr/>hyperlinks if left empty.<br/><br/> 
   </div>
 </xtag>
-<br/><br/><br/>
-<br/>
+<code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref1</code> <code style='font-size: smaller;'>\{ref: //en.wikipedia.org/wiki/Markdown\}</code>  
 <!--
 Since our refined stylesheets can define new tags, they should be considered a
 part of the DTD, so we propose the following type declaration format:
