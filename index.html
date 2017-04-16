@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
   <title>Better HTML</title>
-  <link rel="preload" href="components/xtag.tag" as="script">
+  <link rel="preload" href="components/xtag.tag">
   <link rel="preload" href="stylesheets/style.css" as="style">
   <link rel="preload" href="//cdn.jsdelivr.net/riot/3.4/riot+compiler.min.js" as="script">
   <link rel='stylesheet' type="text/css" href='stylesheets/style.css'>
@@ -31,16 +31,6 @@ making tags look more like compound brackets and restoring the symmetry between 
   </div>
 </xtag><br/><br/>
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref2</code> <code style='font-size: smaller;'>{ref: //en.wikipedia.org/wiki/Markdown}</code>  
-<!--
-Since our refined stylesheets can define new tags, they should be considered a
-part of the DTD, so we propose the following type declaration format:
-<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
-<pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> [
-  @import <a href='css-reworked'>./common.css</a> screen, projection;
-  @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
-  ... // embedded stylesheet
-]&gt;</code></pre>
--->
 
 <script src='components/xtag.tag' type='riot/tag'></script>
 <script src='//cdn.jsdelivr.net/riot/3.4/riot+compiler.min.js'></script>
