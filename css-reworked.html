@@ -82,7 +82,7 @@ this property.<br/>
 <br/>
 The last and most interesting thing we want to add to CSS is the
 element definition rule. Take a look at the following example, which is port of an example from <a href='http://riotjs.com/'>Riot.js</a>:
-<pre><b>@element</b> Timer(start : Nat, <b>@option</b> color : Color) <b>@extends</b> VisualElement(alt: [content]) {
+<pre><b>@element</b> Timer(start : Nat) <b>@extends</b> VisualElement(alt: [content]) {
   <code>&lt;block class=timer-box&gt;
     &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
   &lt;/block&gt;</code>
@@ -95,7 +95,7 @@ element definition rule. Take a look at the following example, which is port of 
     border: 1px solid rgba(64, 139, 194, .5);
     border.radius: 6px;
     text-align: center;
-    color: [attr.color || rgba(64, 139, 194, 1)];
+    color: rgba(64, 139, 194, 1);
     background: white;
   }
   
@@ -126,7 +126,7 @@ do not use &lt;style&gt; tag for enclosing styles, since
 <code>@rule</code> prefix facilitates intermixability with
 JavaScript (and most other applicable programming languages),
 and usage of inheritance. Besides that, in contrast to Riot.js (as of version 3.4.2) it is possible to use expressions
-in styles and to make the element stylable by external stylesheets (by declaring parameters annotated by @option and using them).<br/>
+in styles and to make the element stylable by external stylesheets (by declaring parameters annotated by <code><b>@option</b></code> and using them accordingly).<br/>
 <br/>
 By inheriting from <code>LayoutTag</code> or <code>FormattingObject</code> we would
 declare our tag is not intended to be used in top level HTML
