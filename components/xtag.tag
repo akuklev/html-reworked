@@ -5,7 +5,7 @@
   ><id   if={opts.xid}><wbr/>&nbsp;{opts.xid}</id
   ><opts if={opts.xopts}><wbr/>&nbsp;{'{' + opts.xopts + '}'}</opts
   ><dirs if={opts.xdirs}><wbr/>&nbsp;{opts.xdirs}</dirs
-></virtual>&#8203;<hide>{closed ? '/>' : '>'}</hide></bra
+></virtual><hide>{closed ? '/>' : '>'}</hide></bra
 ><yield><ket if={!closed} class={short: !!opts.short}
   ><hide>&lt;/</hide
   ><tag>{opts.type}</tag
@@ -56,14 +56,19 @@ opts, dirs {
 }
 
 hide {
-  font-family: "Anka/Coder Condensed";
   font-size: 0;
 }
 
-id, cls, opts, dirs {
+hide:before {
+  content: '\u200B';
+  font-family: "Anka/Coder Condensed";
+}
+
+id, cls, opts, dirs, hide {
   font-family: "Anka/Coder Narrow";
   line-height: 0;
 }
+
 </style>
 
 this.classes = !opts.xclass ? [] : opts.xclass.split(' ');
