@@ -20,8 +20,10 @@ bra, ket {
   display: inline-block;
   color: white;
   text-shadow: -1px 0 1px #505050, 0 1px 1px #505050, 1px 0 1px #505050, 0 -1px 1px #505050;
+  border-top: 0 none;
   border-left: 1ex solid;
   border-right: 1ex solid;
+  border-bottom: 0 none;  
 }
 
 bra {
@@ -30,7 +32,7 @@ bra {
 
 bra.short {
   border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L35,0 L20,40 L20,60 L35,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 0 0 40 fill stretch;
-  border-right: none;
+  border-right: 0 none;
 }
 
 bra.closed {
