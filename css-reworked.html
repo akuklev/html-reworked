@@ -78,9 +78,11 @@ this particular <code>&lt;div&gt;</code> has display mode allowing
 this property.<br/>
 <br/>
 <h2>Custom Element Definitions</h2>
+(This section is heavily influenced by ideas from <a href='http://riotjs.com/'>Riot.js</a>.)<br/>
+<br/>
 The last and most interesting thing we want to add to CSS is the
-element definition rule. Take a look at the following example:
-<pre><b>@element</b> Timer(start : Nat) <b>@extends</b> VisualElement(alt: [content]) {
+element definition rule. Take a look at the following example, which is port of an example from <a href='http://riotjs.com/'>Riot.js</a>:
+<pre><b>@element</b> Timer(start : Nat, <b>@option</b> color : Color) <b>@extends</b> VisualElement(alt: [content]) {
   <code>&lt;block class=timer-box&gt;
     &lt;p&gt;Seconds Elapsed: [time]&lt;/p&gt;
   &lt;/block&gt;</code>
@@ -93,7 +95,7 @@ element definition rule. Take a look at the following example:
     border: 1px solid rgba(64, 139, 194, .5);
     border.radius: 6px;
     text-align: center;
-    color: rgba(64, 139, 194, 1);
+    color: [attr.color || rgba(64, 139, 194, 1)];
     background: white;
   }
   
@@ -114,18 +116,17 @@ element definition rule. Take a look at the following example:
   })
 }
 </pre>
+The example defines a new visual element <code>&lt;Timer/&gt;</code>. The definition
+makes use of a combination of HTML (including presentational tags for we're on a visual
+media), CSS and JavaScript and shows they compose well.
 
-This is a port of an example from riot.js to our syntax, here we
-define a new visual element <code>&lt;Timer/&gt;</code>. In the definition we
-mix HTML (including presentational tags for we're on a visual
-media), CSS and JavaScript and observe that they compose well.
-
-The difference from original riot.js definition (which we consider
+The difference from original Riot.js definition (which we consider
 to be one of the tidiest frameworks on the market) is that we
-do not use &lt;script&gt; tag for enclosing styles, since 
+do not use &lt;style&gt; tag for enclosing styles, since 
 <code>@rule</code> prefix facilitates intermixability with
 JavaScript (and most other applicable programming languages),
-and usage of inheritance.<br/>
+and usage of inheritance. Besides that, in contrast to Riot.js (as of version 3.4.2) it is possible to use expressions
+in styles and to make the element stylable by external stylesheets (by declaring parameters annotated by @option and using them).<br/>
 <br/>
 By inheriting from <code>LayoutTag</code> or <code>FormattingObject</code> we would
 declare our tag is not intended to be used in top level HTML
