@@ -15,8 +15,7 @@ HTML was designed to be like that, but it fails miserably since twenty years.<br
 Take HTML5, leave out bizarre syntax for CDATA, entities and comments, add
 back notation for empty tags (as in <code>&lt;br/&gt;</code>) from XML, and close-any tags (<code>&lt;/&gt;</code>)
 from SGML, settle on syntax for [expression] interpolation and directives (<code>@if</code>, <code>@each</code>, etc.).
-Introduce special syntax for special attribute types (IDs and classes), <a href='css-reworked'>unify other attributes with cascading styles</a>.<br/>
-<br/>
+Introduce special syntax for special attribute types (IDs and classes), <a href='css-reworked'>unify other attributes with cascading styles</a>.
 Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating line-breaks near tags as whitespaces.">*</abbr>
 making tags look more like compound brackets and restoring the symmetry between opening and closing ones.<br/><br/>
 <xtag type='Div' xid='sample'><div class='cindented'>
@@ -30,8 +29,8 @@ making tags look more like compound brackets and restoring the symmetry between 
   links and <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>,
   attributes should be allowed to<wbr/> be placed alternatively in closing tags and tag type should default to spans/<wbr/>hyperlinks if left empty.</div>
 </xtag>
-<br/><br/>  
-Note, that Markdown supports inline HTML and <xtag type='' xid="ref1" short={true}>endorces</xtag> using it whenever
+<br/><br/><br/>  
+Note that Markdown supports inline HTML and <xtag type='' xid="ref1" short={true}>endorces</xtag> using it whenever
 appropriate, so a flavour of Markdown based on Reworked HTML can be easily developed.<br/><br/>
   
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref1</code> <code style='font-size: smaller;'>{ref: //daringfireball.net/projects/markdown/syntax}</code> 
