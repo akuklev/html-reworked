@@ -25,7 +25,7 @@ body {
   hyphens: auto;
 }
 
-code {
+pre, code {
   font-family: 'Anka/Coder Narrow';
 }
 
@@ -34,18 +34,7 @@ code.bold {
   font-weight: bold;
 }
 
-span.slogan {
-  padding: 1.5em;
-  line-height: 2.5em;
-  font-weight: 600;
-}
-
 div.cindented {
   padding-left: 1ex;
   line-height: 20px;
-}
-
-xtag {
-  --tag-back-color: rgb(27%, 30%, 35%);
-  --tag-text-color: white;
 }
