@@ -56,10 +56,11 @@ opts, dirs {
 }
 
 hide {
+  font-family: "Anka/Coder Condensed";
   font-size: 0;
 }
 
-id, cls, opts, dirs, hide {
+id, cls, opts, dirs {
   font-family: "Anka/Coder Narrow";
   line-height: 0;
 }
