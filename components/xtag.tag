@@ -1,4 +1,4 @@
-<xtag style='line-height: calc(0.85em + 2px);'
+<xtag style='line-height: calc(0.85em + 1px);'
 ><bra class={closed: closed, short: !!opts.short}><hide>&lt;</hide><virtual if={!opts.short}
   ><tag>{opts.type}</tag
   ><cls  each={class in classes}><wbr/>.{class}</cls
@@ -30,20 +30,20 @@ bra, ket {
 }
 
 bra {
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L9.5,0 L8,3.5 L8,6.5 L9.5,10 L3.45,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L9.5,0 L8,3.5 L8,6.5 L9.5,10 L3.45,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 bra.short {
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L3.5,0 L2,4 L2,6 L3.5,10 L3.45,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 0 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L3.5,0 L2,4 L2,6 L3.5,10 L3.45,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 0 0 4 fill stretch;
   border-right: none;
 }
 
 bra.closed {
-	border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L6.55,0 L10,5 L6.55,10 L3.45,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+	border-image: url("data:image/svg+xml,%3Csvg width='10' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 L3.45,0 L6.55,0 L10,5 L6.55,10 L3.45,10Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 ket {  
-  border-image: url("data:image/svg+xml,%3Csvg width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2,3.5 L0.5,0 L6.55,0 L10,5 L6.55,10 L0.5,10 L2,6.5Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
+  border-image: url("data:image/svg+xml,%3Csvg width='10' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2,3.5 L0.5,0 L6.55,0 L10,5 L6.55,10 L0.5,10 L2,6.5Z' fill='%23505050' stroke='%23404040' stroke-width='0.2'/%3E%3C/svg%3E") 0 4 0 4 fill stretch;
 }
 
 id, cls, opts, dirs {
