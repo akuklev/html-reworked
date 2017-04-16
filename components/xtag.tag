@@ -23,8 +23,8 @@ hide {
 
 bra, ket {
   display: inline-block;
-  color: var(--tag-text-color);
-  text-shadow: -1px 0 1px var(--tag-back-color), 0 1px 1px var(--tag-back-color), 1px 0 1px var(--tag-back-color), 0 -1px 1px var(--tag-back-color);
+  color: white;
+  text-shadow: -1px 0 1px #404040, 0 1px 1px #404040, 1px 0 1px #404040, 0 -1px 1px #404040;
   border-left: 1ex solid;
   border-right: 1ex solid;
 }
