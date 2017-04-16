@@ -10,12 +10,17 @@
 
 There is only one way to keep a rich text document truly accessible: its source
 must be readable as plain text, the only aid allowed being pretty-printing.
-HTML was designed to be like that, but it fails miserably since twenty years.<wbr/>
-Markdown &amp; other lightweight markup languages do master it, but they fail at extenstensibility and
-overuse cryptic ![](markup), where words do just as good.<br/>
-<span class='slogan'>Can we fix HTML?</span>
+HTML was designed to be like that, but it fails miserably since twenty years.<br/>
 <br/>
-<h2>Refined HTML</h2>
+<h2>Fixing it</h2>
+Take HTML5, leave out bizarre syntax for CDATA, entities and comments, add
+back notation for empty tags (as in <code>&lt;br/&gt;</code>) from XML, and close-any tags (<code>&lt;/&gt;</code>)
+from SGML, settle on syntax for [expression] interpolation and directives (<code>@if</code>, <code>@each</code>, <code>@prettyprint</code>, etc.).
+Introduce special syntax for special attribute types (IDs and classes), <a href='css-reworked'>unify other attributes with cascading styles</a>.<br/>
+<br/>
+Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating line-breaks near tags as whitespaces.">*</abbr> representing tags more like compound brackets, less
+like a part of the text, restore the symmetry between opening and closing tags.<br/>
+<h2>The Result</h2>
 <xtag type='Div' xid='sample'><div class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and<wbr/>
   ID enclosed in braces: <xtag type='Image' xopts='src: ./smiley.png'></xtag>.
@@ -28,15 +33,9 @@ overuse cryptic ![](markup), where words do just as good.<br/>
   attributes should be allowed to<wbr/> be placed alternatively in closing tags and tag type should default to spans/<wbr/>hyperlinks if left empty.</div>
 </xtag>
   
-<h2>The Recipe</h2>
-Take HTML5, leave out bizarre syntax for CDATA, entities and comments, add
-back notation for empty tags (as in <code>&lt;br/&gt;</code>) from XML, and close-any tags (<code>&lt;/&gt;</code>)
-from SGML, settle on syntax for [expression] interpolation and directives (<code>@if</code>, <code>@each</code>, <code>@prettyprint</code>, etc.).
-Introduce special syntax for special attribute types (IDs and classes), <a href='css-reworked'>unify other attributes with cascading styles</a>.<br/>
+
 <br/>
-Stop hindering line-breaking by treating breaks near to tags as whitespaces, work out pretty-printing representing tags more like compound brackets, less
-like a part of the text, regain the symmetry between opening and closing tags.<br/>
-<br/>
+<!--
 Since our refined stylesheets can define new tags, they should be considered a
 part of the DTD, so we propose the following type declaration format:
 <pre><code>&lt;!<b>DOCTYPE</b> html @<b>with</b> /path/to/stylesheet&gt;</code></pre>
@@ -45,26 +44,15 @@ part of the DTD, so we propose the following type declaration format:
   @import <a href='css-reworked'>./landscape.css</a> screen and (orientation:landscape);
   ... // embedded stylesheet
 ]&gt;</code></pre>
+-->
 
-  
-<h2>Refined Markdown</h2>
-Markdown was designed not to replace, but to augment HTML; it supports inline HTML and its
+<h2>Adding (syntactic) sugar</h2>
+The current leader of lightweight markup languages, the Markdown was designed not to replace, but to augment HTML; it supports inline HTML and its
 <xtag type='' xid="ref1" short={true}>documentation</xtag> endorces to use HTML whenever
 it seems appropriate. Thus Markdown based on refined HTML needs no special syntax for
-hyperlinks and images.<br/><br/>
+hyperlinks and images, while providing valuable enhancement to document readability.<br/><br/>
   
 <code style='font-weight: bold;'>@rule</code> <code>#ref1</code> <code style='font-size: smaller;'>{ref: //daringfireball.net/projects/markdown/syntax}</code>
-
-<h2>Beyond Web</h2>
-With a comprehensible library of components (such as date picker, spinner,
-etc.) and the complete set of layout tags (<code>&lt;tabstop/&gt;</code>,
-<code>&lt;run-in/&gt;</code>, <code>&lt;inline/&gt;</code>,
-<code>&lt;block/&gt;</code>, <code>&lt;inline-block/&gt;</code>,
-<code>&lt;flex/&gt;</code>, <code>&lt;inline-flex/&gt;</code>,
-<code>&lt;float/&gt;</code>, <code>&lt;overlay/&gt;</code> and grid stuff),
-refined HTML also makes a perfect language for interactive visual UIs.<br/>
-<br/>
-Refs: <a href='http://akuklev.livejournal.com/1173309.html'>//akuklev.livejournal.com/1173309</a>
 
 <script src='components/xtag.tag' type='riot/tag'></script>
 <script src='//cdn.jsdelivr.net/riot/3.4/riot+compiler.min.js'></script>
