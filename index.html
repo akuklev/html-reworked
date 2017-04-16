@@ -33,7 +33,10 @@ like a part of the text, restore the symmetry between opening and closing tags.<
   attributes should be allowed to<wbr/> be placed alternatively in closing tags and tag type should default to spans/<wbr/>hyperlinks if left empty.</div>
 </xtag>
   
-
+Note, that Markdown supports inline HTML and <xtag type='' xid="ref1" short={true}>endorces</xtag>  using HTML whenever
+appropriate, thus it can be easily combined with refined HTML.<br/><br/>
+  
+<code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref1</code> <code style='font-size: smaller;'>{ref: //daringfireball.net/projects/markdown/syntax}</code> 
 <br/>
 <!--
 Since our refined stylesheets can define new tags, they should be considered a
@@ -45,14 +48,6 @@ part of the DTD, so we propose the following type declaration format:
   ... // embedded stylesheet
 ]&gt;</code></pre>
 -->
-
-<h2>Adding (syntactic) sugar</h2>
-The current leader of lightweight markup languages, the Markdown was designed not to replace, but to augment HTML; it supports inline HTML and its
-<xtag type='' xid="ref1" short={true}>documentation</xtag> endorces to use HTML whenever
-it seems appropriate. Thus Markdown based on refined HTML needs no special syntax for
-hyperlinks and images, while providing valuable enhancement to document readability.<br/><br/>
-  
-<code style='font-weight: bold;'>@rule</code> <code>#ref1</code> <code style='font-size: smaller;'>{ref: //daringfireball.net/projects/markdown/syntax}</code>
 
 <script src='components/xtag.tag' type='riot/tag'></script>
 <script src='//cdn.jsdelivr.net/riot/3.4/riot+compiler.min.js'></script>
