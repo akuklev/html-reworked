@@ -21,16 +21,15 @@ Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating 
 making tags look more like compound brackets and restoring the symmetry between opening and closing ones.
 <br/><br/>
 
-<x-tag type='Div' xid='sample'><div class='cindented'>
+<x-tag type='Div' xid='sample' class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and
   ID enclosed in braces: <x-tag type='Image' xopts='src: ./smiley.png'></x-tag>.
   Directives come right after,
   as in this optional <x-tag type='Button' xid='play' xdirs='@if(ui-active)'></x-tag>. Classes <x-tag type='Span' xclass='term'>can</x-tag>
   be ascribed as dot-subscipts to tags. <x-tag type='Span' xclass='{hide: !show-details}'>Dynamic classes
-  are supported as well. Short-cut notation <code style='font-size: small;'>.\{name\};</code> stands for <code style='font-size: small;'>.\{name: name\}</code>.</x-tag>
+  are supported as well. Short-cut notation <code style='font-size: small;'>.{name};</code> stands for <code style='font-size: small;'>.{name: name}</code>.</x-tag>
   To support <x-tag xid="ref2" short>Markdown</x-tag>-like syntax for <x-tag type='Image' xopts='src: ./figure.png' short>figures</x-tag>
-  and links, attributes should be allowed to be placed alternatively in closing tags and tag type should default to spans/hyperlinks if left empty. 
-  </div>
+  and links, attributes should be allowed to be placed alternatively in closing tags and tag type should default to spans/hyperlinks if left empty.
 </x-tag><br/><br/>
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref2</code> <code style='font-size: smaller;'>{ref: //en.wikipedia.org/wiki/Markdown}</code>  
 
