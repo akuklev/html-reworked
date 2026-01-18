@@ -4,8 +4,6 @@
 <title>Better HTML</title>
 
 <link rel="modulepreload" href='https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js'>
-<link rel="preload" href="//cdn.jsdelivr.net/riot/3.4/riot+compiler.min.js" as="script">
-<link rel="preload" href="components/xtag.tag">
 <link rel="preload" href="stylesheets/style.css" as="style">
 <link rel='stylesheet' type="text/css" href='stylesheets/style.css'>
   
@@ -22,20 +20,109 @@ Introduce special syntax for special attribute types (IDs and classes) and <a hr
 Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating line-breaks near tags as whitespaces.">*</abbr>
 making tags look more like compound brackets and restoring the symmetry between opening and closing ones.
 <p>
-<xtag type='Div' xid='sample'><div class='cindented'>
+<x-tag type='Div' xid='sample'><div class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and
-  ID enclosed in braces: <xtag type='Image' xopts='src: ./smiley.png'></xtag>.
+  ID enclosed in braces: <x-tag type='Image' xopts='src: ./smiley.png'></x-tag>.
   Directives come right after,
-  as in this optional <xtag type='Button' xid='play' xdirs='@if(ui-active)'></xtag>. Classes <xtag type='Span' xclass='term'>can</xtag>
-  be ascribed as dot-subscipts to tags. <xtag type='Span' xclass='\{hide:&nbsp;!show-details\}'>Dynamic classes
-  are supported as well. Short-cut notation <code style='font-size: small;'>.\{name\};</code> stands for <code style='font-size: small;'>.\{name: name\}</code>.</xtag>
-  To support <xtag type='' xid="ref2" short={true}>Markdown</xtag>-like syntax for <xtag type='Image' xopts='src: ./figure.png' short={true}>figures</xtag>
+  as in this optional <x-tag type='Button' xid='play' xdirs='@if(ui-active)'></x-tag>. Classes <x-tag type='Span' xclass='term'>can</x-tag>
+  be ascribed as dot-subscipts to tags. <x-tag type='Span' xclass='\{hide:&nbsp;!show-details\}'>Dynamic classes
+  are supported as well. Short-cut notation <code style='font-size: small;'>.\{name\};</code> stands for <code style='font-size: small;'>.\{name: name\}</code>.</x-tag>
+  To support <x-tag type='' xid="ref2" short={true}>Markdown</x-tag>-like syntax for <x-tag type='Image' xopts='src: ./figure.png' short={true}>figures</x-tag>
   and links, attributes should be allowed to be placed alternatively in closing tags and tag type should default to spans/hyperlinks if left empty. 
   </div>
-</xtag><br/><br/>
+</x-tag><br/><br/>
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref2</code> <code style='font-size: smaller;'>{ref: //en.wikipedia.org/wiki/Markdown}</code>  
 
-<script src='components/xtag.tag' type='riot/tag'></script>
-<script src='//cdn.jsdelivr.net/riot/3.4/riot+compiler.min.js'></script>
-<script> riot.mount('*') </script>
+<script type="module">
+import {html, css, LitElement, nothing} from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+
+export class Tag extends LitElement {
+  
+  static properties = {
+    type: {type: String},
+    xid: {type: String},
+    xclass: {type: String},
+    xdirs: {type: String},
+    short: {type: Boolean},
+  };
+
+  static styles = css`
+bra, ket, bracket {
+  display: inline-block;
+  color: white;
+  text-shadow: -1px 0 1px #505050, 0 1px 1px #505050, 1px 0 1px #505050, 0 -1px 1px #505050;
+  border-top: 0 none;
+  border-left: 1ex solid;
+  border-right: 1ex solid;
+  border-bottom: 0 none;  
+}
+
+bra {
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L95,0 L80,35 L80,65 L95,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
+}
+
+bra.short {
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L35,0 L20,40 L20,60 L35,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 0 0 40 fill stretch;
+  border-right: 0 none;
+}
+
+bracket {
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L65.5,0 L100,50 L65.5,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
+}
+
+ket {  
+  border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,35 L5,0 L65.5,0 L100,50 L65.5,100 L5,100 L20,65Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
+}
+
+bra.short tag:before {
+  content: '\200B';
+}
+
+tag {
+  font-family: "Anka/Coder Condensed";
+}
+
+cls {
+  font-size: small;
+}
+
+opts, dirs {
+  font-size: smaller;
+}
+
+hide {
+  font-size: 0;
+}
+
+id, cls, opts, dirs, hide {
+  font-family: "Anka/Coder Narrow";
+  line-height: 0;
+}
+`;  
+  
+  render() {
+    closed = false;//!this.innerHTML;
+    
+    let suffix = html`
+      ${this.xclass.split(' ').map((class) =>
+        html`<cls><wbr/>.${class}</cls>`
+      )}
+      <id><wbr/>&nbsp;{this.xid}</id>      
+      <opts><wbr/>&nbsp;${'{' + this.xopts + '}'}</opts>
+      <dirs><wbr/>&nbsp;{this.xdirs}</dirs>`;
+    
+    let opening = this.short ? nothing : html`<tag>${this.type}</tag>${suffix}`;
+    let closure = html`<tag>${this.type}</tag>${this.short ? suffix : nothing}`;
+  
+    return closed
+      ? html`<bracket><hide>&lt;</hide> ${opening} <hide>/&gt;</hide></bracket>`
+      : html`<span style='line-height: calc(0.83em + 1px);'>
+        <bra><hide>&lt;</hide> ${opening} <hide>&gt;</hide></bra>
+        <slot/>
+        <ket><hide>&lt;/</hide> ${closure} <hide>&gt;</hide></ket>
+      </span>`;
+  }
+}
+customElements.define('x-tag', Tag);
+</script>
 </html>
