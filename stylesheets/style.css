@@ -34,7 +34,7 @@ code.bold {
   font-weight: bold;
 }
 
-div.cindented {
+.cindented {
   padding-left: 1ex;
   line-height: 20px;
 }
