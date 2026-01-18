@@ -16,18 +16,19 @@ Take HTML5, leave out bizarre syntax for CDATA, entities and comments, add
 back notation for empty tags (<code>&lt;br/&gt;</code>) from XML, and close-any tags (<code>&lt;/&gt;</code>)
 from SGML, settle on syntax for [expression] interpolation and directives (<code>@if</code>, <code>@each</code>, etc).
 Introduce special syntax for special attribute types (IDs and classes) and <a href='css-reworked'>unify all other attributes with cascading styles</a>.
-<p>
+<br/><br/>
 Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating line-breaks near tags as whitespaces.">*</abbr>
 making tags look more like compound brackets and restoring the symmetry between opening and closing ones.
-<p>
+<br/><br/>
+
 <x-tag type='Div' xid='sample'><div class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and
   ID enclosed in braces: <x-tag type='Image' xopts='src: ./smiley.png'></x-tag>.
   Directives come right after,
   as in this optional <x-tag type='Button' xid='play' xdirs='@if(ui-active)'></x-tag>. Classes <x-tag type='Span' xclass='term'>can</x-tag>
-  be ascribed as dot-subscipts to tags. <x-tag type='Span' xclass='\{hide:&nbsp;!show-details\}'>Dynamic classes
+  be ascribed as dot-subscipts to tags. <x-tag type='Span' xclass='{hide: !show-details}'>Dynamic classes
   are supported as well. Short-cut notation <code style='font-size: small;'>.\{name\};</code> stands for <code style='font-size: small;'>.\{name: name\}</code>.</x-tag>
-  To support <x-tag type='' xid="ref2" short={true}>Markdown</x-tag>-like syntax for <x-tag type='Image' xopts='src: ./figure.png' short={true}>figures</x-tag>
+  To support <x-tag xid="ref2" short>Markdown</x-tag>-like syntax for <x-tag type='Image' xopts='src: ./figure.png' short>figures</x-tag>
   and links, attributes should be allowed to be placed alternatively in closing tags and tag type should default to spans/hyperlinks if left empty. 
   </div>
 </x-tag><br/><br/>
@@ -43,10 +44,15 @@ export class Tag extends LitElement {
     xid: {type: String},
     xclass: {type: String},
     xdirs: {type: String},
+    xopts: {type: String},
     short: {type: Boolean},
   };
 
   static styles = css`
+:host {
+  line-height: calc(0.83em + 1px);
+}
+
 bra, ket, bracket {
   display: inline-block;
   color: white;
@@ -57,11 +63,12 @@ bra, ket, bracket {
   border-bottom: 0 none;  
 }
 
+
 bra {
   border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L95,0 L80,35 L80,65 L95,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
 }
 
-bra.short {
+bra[short] {
   border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L34.5,0 L35,0 L20,40 L20,60 L35,100 L34.5,100Z' fill='%23505050'/%3E%3C/svg%3E") 0 0 0 40 fill stretch;
   border-right: 0 none;
 }
@@ -72,10 +79,6 @@ bracket {
 
 ket {  
   border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,35 L5,0 L65.5,0 L100,50 L65.5,100 L5,100 L20,65Z' fill='%23505050'/%3E%3C/svg%3E") 0 40 0 40 fill stretch;
-}
-
-bra.short tag:before {
-  content: '\200B';
 }
 
 tag {
@@ -98,29 +101,27 @@ id, cls, opts, dirs, hide {
   font-family: "Anka/Coder Narrow";
   line-height: 0;
 }
-`;  
+`;
+ 
   
   render() {
-    let closed = false;//!this.innerHTML;
-    
-    let suffix = html`
-      ${(this.xclass ?? '').split(' ').map((cls) =>
-        html`<cls><wbr/>.${cls}</cls>`
-      )}
-      <id><wbr/>&nbsp;{this.xid}</id>      
-      <opts><wbr/>&nbsp;${'{' + this.xopts + '}'}</opts>
-      <dirs><wbr/>&nbsp;{this.xdirs}</dirs>`;
+    let closed = this.childNodes.length == 0;
+
+    let classes = !this.xclass ? nothing : this.xclass.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`);     
+    let id = !this.xid ? nothing : html`<id><wbr/>&nbsp;${this.xid}</id>`;
+    let opts = !this.xopts ? nothing : html`<opts><wbr/>&nbsp;${'{' + this.xopts + '}'}</opts>`;
+    let dirs = !this.xdirs ? nothing : html`<dirs><wbr/>&nbsp;${this.xdirs}</dirs>`;
+
+    let suffix = html`${classes}${id}${opts}${dirs}`;
     
     let opening = this.short ? nothing : html`<tag>${this.type}</tag>${suffix}`;
     let closure = html`<tag>${this.type}</tag>${this.short ? suffix : nothing}`;
   
     return closed
-      ? html`<bracket><hide>&lt;</hide> ${opening} <hide>/&gt;</hide></bracket>`
-      : html`<span style='line-height: calc(0.83em + 1px);'>
-        <bra><hide>&lt;</hide> ${opening} <hide>&gt;</hide></bra>
-        <slot/>
-        <ket><hide>&lt;/</hide> ${closure} <hide>&gt;</hide></ket>
-      </span>`;
+      ? html`<bracket><hide>&lt;</hide>${opening}<hide>/&gt;</hide></bracket>`
+      : html`<bra ?short=${this.short}><hide>&lt;</hide>${opening}<hide>&gt;</hide></bra>
+        <slot></slot>
+        <ket><hide>&lt;/</hide>${closure}<hide>&gt;</hide></ket>`;
   }
 }
 customElements.define('x-tag', Tag);
