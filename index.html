@@ -105,8 +105,8 @@ id, cls, opts, dirs, hide {
 
     alert(1);
     let suffix = html`
-      ${this.xclass.split(' ').map((class) =>
-        html`<cls><wbr/>.${class}</cls>`
+      ${this.xclass.split(' ').map((cls) =>
+        html`<cls><wbr/>.${cls}</cls>`
       )}
       <id><wbr/>&nbsp;{this.xid}</id>      
       <opts><wbr/>&nbsp;${'{' + this.xopts + '}'}</opts>
