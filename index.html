@@ -101,7 +101,7 @@ id, cls, opts, dirs, hide {
 `;  
   
   render() {
-    closed = false;//!this.innerHTML;
+    let closed = false;//!this.innerHTML;
     
     let suffix = html`
       ${this.xclass.split(' ').map((cls) =>
