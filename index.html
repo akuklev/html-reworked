@@ -102,8 +102,7 @@ id, cls, opts, dirs, hide {
   line-height: 0;
 }
 `;
- 
-  
+
   render() {
     let closed = this.childNodes.length == 0;
 
@@ -119,9 +118,8 @@ id, cls, opts, dirs, hide {
   
     return closed
       ? html`<bracket><hide>&lt;</hide>${opening}<hide>/&gt;</hide></bracket>`
-      : html`<bra ?short=${this.short}><hide>&lt;</hide>${opening}<hide>&gt;</hide></bra>
-        <slot></slot>
-        <ket><hide>&lt;/</hide>${closure}<hide>&gt;</hide></ket>`;
+      : html`<bra ?short=${this.short}><hide>&lt;</hide>${opening}<hide>&gt;</hide></bra><slot>
+        </slot><ket><hide>&lt;/</hide>${closure}<hide>&gt;</hide></ket>`;
   }
 }
 customElements.define('x-tag', Tag);
