@@ -34,7 +34,7 @@ making tags look more like compound brackets and restoring the symmetry between 
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref2</code> <code style='font-size: smaller;'>{ref: //en.wikipedia.org/wiki/Markdown}</code>  
 
 <script type="module">
-import {html, css, LitElement, nothing} from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import {html, css, LitElement, nothing, join} from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 
 export class Tag extends LitElement {
   
@@ -107,22 +107,40 @@ id, cls, opts, dirs, hide {
 `;
 
   render() {
-    let closed = this.childNodes.length == 0;
+    let hasChildren = (this.childNodes.length == 0);
 
-    let classes = !this.xclass ? nothing : this.xclass.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`);     
-    let id = !this.xid ? nothing : html`<id><wbr/>&nbsp;${this.xid}</id>`;
-    let opts = !this.xopts ? nothing : html`<opts><wbr/>&nbsp;${'{' + this.xopts + '}'}</opts>`;
-    let dirs = !this.xdirs ? nothing : html`<dirs><wbr/>&nbsp;${this.xdirs}</dirs>`;
+    var tagstring = [];
+    var tagname = nothing;
+    if (this.type) {
+      tagname = html`<tag>${this.type}</tag>`;
+      tagstring.push(tagname);
+    }
+    if (this.xclass) {
+      let classes = this.xclass.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`); 
+      tagstring.push(classes);
+    }
+    if (this.xid) {
+      let id = html`<id>${this.xid}</id>`;
+      tagstring.push(id);
+    }
+    if (this.xopts) {
+      let opts = html`<opts>${'{' + this.xopts + '}'}</opts>`;
+      tagstring.push(opts);
+    }
+    if (this.xdirs) {
+      let dirs = html`<dirs>${this.xdirs}</dirs>`;
+      tagstring.push(dirs);
+    }
 
-    let suffix = html`${classes}${id}${opts}${dirs}`;
-    
-    let opening = this.short ? nothing : html`<tag>${this.type}</tag>${suffix}`;
-    let closure = html`<tag>${this.type}</tag>${this.short ? suffix : nothing}`;
+    tagstring = join(tagstring, html`<wbr/>&nbsp;`);
+
+    let bra = this.short ? html`<bra short><hide>&lt;&gt;</hide></bra>`
+      : html`<bra><hide>&lt;</hide>${tagstring)}<hide>&gt;</hide></bra>`;
+
+    let ket = html`<ket><hide>&lt;/</hide><tag>${this.short ? tagstring : tagname}</tag><hide>&gt;</hide></ket>`
   
-    return closed
-      ? html`<bracket><hide>&lt;</hide>${opening}<hide>/&gt;</hide></bracket>`
-      : html`<bra ?short=${this.short}><hide>&lt;</hide>${opening}<hide>&gt;</hide></bra><slot>
-        </slot><ket><hide>&lt;/</hide>${closure}<hide>&gt;</hide></ket>`;
+    return hasChildren ? html`${bra}<slot></slot>$(ket)`
+      : html`<bracket><hide>&lt;</hide>${tagstring}<hide>/&gt;</hide></bracket>`;
   }
 }
 customElements.define('x-tag', Tag);
