@@ -110,26 +110,26 @@ id, cls, opts, dirs, hide {
   render() {
     let hasChildren = (this.childNodes.length != 0);
     let el = this;
- 
-    let tagname = !el.type ? nothing : html`<tag>${el.type}</tag>`;
+
+    let tag = el.type ?? nothing;
 
     let tagParts = (function*() {
-      if (el.cls) yield html`${tagname}${el.cls.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`)}`;
-      else if (el.type) yield tagname;
+      if (el.cls) yield html`${tag}${el.cls.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`)}`;
+      else if (el.type) yield tag;
       if (el.id)   yield html`<id>${el.id}</id>`;
       if (el.opts) yield html`<opts>${'{' + el.opts + '}'}</opts>`;
       if (el.dirs) yield html`<dirs>${el.dirs}</dirs>`;
     })();
    
-    let tagstring = join(tagParts, html`<wbr/>&nbsp;`);
+    let fulltag = join(tagParts, html`<wbr/>&nbsp;`);
 
     let bra = this.short ? html`<bra short><hide>&lt;&gt;</hide></bra>`
-      : html`<bra><hide>&lt;</hide>${tagstring}<hide>&gt;</hide></bra>`;
+      : html`<bra><hide>&lt;</hide><tag>${fulltag}</tag><hide>&gt;</hide></bra>`;
 
-    let ket = html`<ket><hide>&lt;/</hide><tag>${this.short ? tagstring : tagname}</tag><hide>&gt;</hide></ket>`
+    let ket = html`<ket><hide>&lt;/</hide><tag>${this.short ? fulltag : tag}</tag><hide>&gt;</hide></ket>`
   
     return hasChildren ? html`${bra}<slot></slot>${ket}`
-      : html`<bracket><hide>&lt;</hide>${tagstring}<hide>/&gt;</hide></bracket>`;
+      : html`<bracket><hide>&lt;</hide><tag>${fulltag}</tag><hide>/&gt;</hide></bracket>`;
   }
 }
 customElements.define('x-tag', Tag);
