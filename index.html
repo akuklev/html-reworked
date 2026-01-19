@@ -121,7 +121,7 @@ id, cls, opts, dirs, hide {
       if (el.dirs) yield html`<dirs>${el.dirs}</dirs>`;
     })();
    
-    let fulltag = join(tagParts, html`<wbr/>&thinsp;`);
+    let fulltag = join(tagParts, html`<wbr/>&#8197;`);
 
     let bra = this.short ? html`<bra short><hide>&lt;&gt;</hide></bra>`
       : html`<bra><hide>&lt;</hide><tag>${fulltag}</tag><hide>&gt;</hide></bra>`;
