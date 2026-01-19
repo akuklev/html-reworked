@@ -135,7 +135,7 @@ id, cls, opts, dirs, hide {
     tagstring = join(tagstring, html`<wbr/>&nbsp;`);
 
     let bra = this.short ? html`<bra short><hide>&lt;&gt;</hide></bra>`
-      : html`<bra><hide>&lt;</hide>${tagstring)}<hide>&gt;</hide></bra>`;
+      : html`<bra><hide>&lt;</hide>${tagstring}<hide>&gt;</hide></bra>`;
 
     let ket = html`<ket><hide>&lt;/</hide><tag>${this.short ? tagstring : tagname}</tag><hide>&gt;</hide></ket>`
   
