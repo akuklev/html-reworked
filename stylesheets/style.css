@@ -2,22 +2,25 @@
   font-family: 'PT Serif';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url(https://fonts.gstatic.com/s/ptserif/v19/EJRVQgYoZZY2vCFuvAFWzr-_dSb_.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: 'Anka/Coder Condensed';
-  src: url('/html-reworked/fonts/AnkaCoderCondensedBold.ttf') format('truetype');
+  src: url('https://fontlibrary.org/assets/fonts/anka-coder-condensed/5b5d74bc1795f57c315a532383ee0c0f/1d00eb29e875272ed4384f7398e32042/AnkaCoderCondensedBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Anka/Coder Narrow';
-  src: url('/html-reworked/fonts/AnkaCoderNarrowRegular.ttf') format('truetype');
+  src: url('https://fontlibrary.org/assets/fonts/anka-coder-narrow/4ed9dd9fcfa020d9f9c3de3fffb2b2ad/fc2bb7812de57ddc5d492442d57d16f3/AnkaCoderNarrowRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
