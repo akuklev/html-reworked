@@ -3,7 +3,7 @@
 <meta charset="utf-8"/>
 <title>Better HTML</title>
 
-<link rel="modulepreload" href='https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js'>
+<link rel="modulepreload" href='https://cdn.jsdelivr.net/gh/lit/dist@3/all/lit-all.min.js'>
 <link rel="preload" href="stylesheets/style.css" as="style">
 <link rel='stylesheet' type="text/css" href='stylesheets/style.css'>
   
@@ -21,29 +21,29 @@ Work out pretty-printing<abbr title="Stop hindering pretty-printing by treating 
 making tags look more like compound brackets and restoring the symmetry between opening and closing ones.
 <br/><br/>
 
-<x-tag type='Div' xid='sample'><div class='cindented'>
+<x-tag type='Div' id='sample'><div class='cindented'>
   This is a text block with ID=“sample”. Styles/options come after the tag and
-  ID enclosed in braces: <x-tag type='Image' xopts='src: ./smiley.png'></x-tag>.
+  ID enclosed in braces: <x-tag type='Image' opts='src: ./smiley.png'></x-tag>.
   Directives come right after,
-  as in this optional <x-tag type='Button' xid='play' xdirs='@if(ui-active)'></x-tag>. Classes <x-tag type='Span' xclass='term'>can</x-tag>
-  be ascribed as dot-subscipts to tags. <x-tag type='Span' xclass='{hide: !show-details}'>Dynamic classes
+  as in this optional <x-tag type='Button' id='play' dirs='@if(ui-active)'></x-tag>. Classes <x-tag type='Span' cls='term'>can</x-tag>
+  be ascribed as dot-subscipts to tags. <x-tag type='Span' cls='{hide:&nbsp;!show-details}'>Dynamic classes
   are supported as well. Short-cut notation <code style='font-size: small;'>.{name};</code> stands for <code style='font-size: small;'>.{name: name}</code>.</x-tag>
-  To support <x-tag xid="ref2" short>Markdown</x-tag>-like syntax for <x-tag type='Image' xopts='src: ./figure.png' short>figures</x-tag>
+  To support <x-tag id="ref2" short>Markdown</x-tag>-like syntax for <x-tag type='Image' opts='src: ./figure.png' short>figures</x-tag>
   and links, attributes should be allowed to be placed alternatively in closing tags and tag type should default to spans/hyperlinks if left empty.
 </div></x-tag><br/><br/>
 <code style='font-weight: bold;'>@rule</code> <code style='font-size: small;'>#ref2</code> <code style='font-size: smaller;'>{ref: //en.wikipedia.org/wiki/Markdown}</code>  
 
 <script type="module">
-import {html, css, LitElement, nothing, join} from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import {html, css, LitElement, nothing, join} from 'https://cdn.jsdelivr.net/gh/lit/dist@3/all/lit-all.min.js';
 
 export class Tag extends LitElement {
   
   static properties = {
     type: {type: String},
-    xid: {type: String},
-    xclass: {type: String},
-    xdirs: {type: String},
-    xopts: {type: String},
+    id: {type: String},
+    cls: {type: String},
+    dirs: {type: String},
+    opts: {type: String},
     short: {type: Boolean},
   };
 
@@ -107,39 +107,28 @@ id, cls, opts, dirs, hide {
 `;
 
   render() {
-    let hasChildren = (this.childNodes.length == 0);
+    let hasChildren = (this.childNodes.length != 0);
+    let el = this;
+ 
+    let tagname = !el.type ? nothing : html`<tag>${el.type}</tag>`;
 
-    var tagstring = [];
-    var tagname = nothing;
-    if (this.type) {
-      tagname = html`<tag>${this.type}</tag>`;
-      tagstring.push(tagname);
-    }
-    if (this.xclass) {
-      let classes = this.xclass.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`); 
-      tagstring.push(classes);
-    }
-    if (this.xid) {
-      let id = html`<id>${this.xid}</id>`;
-      tagstring.push(id);
-    }
-    if (this.xopts) {
-      let opts = html`<opts>${'{' + this.xopts + '}'}</opts>`;
-      tagstring.push(opts);
-    }
-    if (this.xdirs) {
-      let dirs = html`<dirs>${this.xdirs}</dirs>`;
-      tagstring.push(dirs);
-    }
-
-    tagstring = join(tagstring, html`<wbr/>&nbsp;`);
+    let tagParts = (function*() {
+      if (el.type) yield tagname;
+      if (el.cls)  yield el.cls.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`); 
+      if (el.id)   yield html`<id>${el.id}</id>`;
+      if (el.opts) yield html`<opts>${'{' + el.opts + '}'}</opts>`;
+      if (el.dirs) yield html`<dirs>${el.dirs}</dirs>`;
+    })();
+   
+    let tagstring = join(tagParts, html`<wbr/>&nbsp;`);
+    
 
     let bra = this.short ? html`<bra short><hide>&lt;&gt;</hide></bra>`
       : html`<bra><hide>&lt;</hide>${tagstring}<hide>&gt;</hide></bra>`;
 
     let ket = html`<ket><hide>&lt;/</hide><tag>${this.short ? tagstring : tagname}</tag><hide>&gt;</hide></ket>`
   
-    return hasChildren ? html`${bra}<slot></slot>$(ket)`
+    return hasChildren ? html`${bra}<slot></slot>${ket}`
       : html`<bracket><hide>&lt;</hide>${tagstring}<hide>/&gt;</hide></bracket>`;
   }
 }
