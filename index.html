@@ -114,8 +114,8 @@ id, cls, opts, dirs, hide {
     let tagname = !el.type ? nothing : html`<tag>${el.type}</tag>`;
 
     let tagParts = (function*() {
-      if (el.type) yield tagname;
-      if (el.cls)  yield el.cls.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`); 
+      if (el.cls) yield tagname + el.cls.split(' ').map((cls) => html`<cls><wbr/>.${cls}</cls>`);
+      else if (el.type) yield tagname;
       if (el.id)   yield html`<id>${el.id}</id>`;
       if (el.opts) yield html`<opts>${'{' + el.opts + '}'}</opts>`;
       if (el.dirs) yield html`<dirs>${el.dirs}</dirs>`;
